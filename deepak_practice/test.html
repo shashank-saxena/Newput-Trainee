@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Basic tags</title>
+<meta charset="UTF-8">
+<meta name="description" content="basic tags">
+<meta name="keywords" content="html,css,xml">
+<meta name="author" content="Hege Refsnes">
+<link rel="stylesheet" href="file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/css/style.css">
+<script type="application/javascript" src="file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/js/basictest.js"></script>
+<base href="file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practiceimages/" >
+</head>
+ <body>
+  <div class="wrap">
+	<header>
+		<div class="logo">
+			<img src="download.jpeg">
+		</div>
+		<div id="title">
+			Basic Program
+		</div>
+		<div class="contactus">
+		Contact-Us<b>800-3453455</b>
+		</div>
+	</header>
+	
+	<nav>	
+	   <div class="navline"></div>
+		<div class="navmenu">		
+			<a href="google.com">Google</a>
+		</div>
+		<div class="navmenu">		
+			<a href="gmail.com">Gmail</a>
+		</div>
+		<div class="navmenu">		
+			<a href="" alt="Location Map">Location</a>
+		</div>
+	</nav>
+	<div class="bgEEE greyboxpadding">
+		<div class="boxcontainer">
+			<div class="imgcontainer">
+				<img src="pin.jpg" alt="Practise" class="imgbox" onmouseover="hover(this);" onmouseup="unhover(this);" >
+			</div>
+			<div class="imgdescription">
+			    	Soul Nebula #Universe #Cosmos 	    
+			</div>
+			<div class="activitybtn">
+				   <img src="dashpin.png" alt="Practise" class="activitypin">
+				   <a href="javascript:void(0)" ><img src="like.png" alt="Practise" onclick="increaseLike(this);"  class="activitylike"></a>				  
+			</div>
+			<div class="activitycount" id="result"></div> 
+			<div class="hrline"></div>
+			<div class="bottomdesc">
+                 <div class="descbtn">
+					<a href="javascript:void(0)"><span class="pintbtn">Pintit</span></a>
+				 </div>
+				 <div class="descbtn">
+					<input onmousedown="this.value='Stop'" onmouseup="this.value='Send'" type="button" value="Send" id="myButton1" class="sendbtn" />
+				 </div>
+				 <div class="descbtn">
+					<a href="javascript:void(0)" onclick="updateLike();"><span id="likbtn" class="likebtn">Like</span></a>
+				 </div>			  	 
+					
+			 </div>
+		</div>	   		
+	 </div>
+	<footer>
+		Copyright © Test.com
+	</footer>
+  </div>
+</body>
+
+</html>

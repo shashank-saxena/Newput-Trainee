@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Basic tags</title>
+<meta charset="UTF-8">
+<meta name="description" content="basic tags">
+<meta name="keywords" content="html,css,xml">
+<meta name="author" content="Hege Refsnes">
+<link rel="stylesheet" href="file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="application/javascript" src="file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/js/basictest.js"></script>
+<base href="file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/images/" >
+<script>
+ //htmlData=htmlData+'<table><tr><td>'+r.Books[i].ID+'</td><td>'+r.Books[i].Title+'</td><td>'+r.Books[i].Description+'</td></tr></table>'
+
+function loadXMLDoc()
+{
+  var xmlhttp;
+	if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		}
+	else
+        {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+    var htmlData="";
+	 xmlhttp.onreadystatechange=function()
+     {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+			 var r=JSON.parse(xmlhttp.responseText);	
+			 //alert(r.Books.length);
+				 htmlData=htmlData+'\
+				 <header>\
+					<div class="logo"><img src="download.jpeg"></div>\
+					<div id="title">Basic Program</div>\
+					<div class="contactus">Contact-Us<b>800-3453455</b></div>\
+				 </header>\
+				 <nav>\
+		  		   <div class="navline"></div>\
+				   <div class="navmenu"><a href="google.com">Google</a></div>\
+				   <div class="navmenu"><a href="gmail.com">Gmail</a></div>\
+				   <div class="navmenu"><a href="" alt="Location Map">Location</a></div>\
+				 </nav>\
+				 <div class="bgEEE greyboxpadding">';	
+			        for(var i=0;i<r.Books.length;i++){	
+						htmlData=htmlData+'\
+							<div class="boxcontainer">\
+									<div class="imgcontainer">\
+										 <img src="'+r.Books[i].Image+'" alt="Practise" class="imgbox" >\
+									</div>\
+									<div class="imgdescription"><div class="bkid">'+r.Books[i].Title+'</div></div>\
+									<div class="activitybtn">\
+										 <img src="dashpin.png" alt="Practise" class="activitypin">\
+										 <a href="javascript:void(0)" ><img src="like.png" alt="Practise" onclick="increaseLike(this);"  class="activitylike"></a>\
+									</div>\
+									<div class="activitycount" id="result"></div>\
+									<div class="hrline"></div>\
+									<div class="bottomdesc">\
+										<div class="descbtn"><a href="javascript:void(0)"><span class="pintbtn">Pintit</span></a></div>\
+										<div class="descbtn"><input onmousedown="this.value=\'Stop\'" onmouseup="this.value=\'Send\'" type="button" value="Send" id="myButton1" class="sendbtn" /></div>\
+										<div class="descbtn"><a href="javascript:void(0)" onclick="updateLike(this);"><span id="i'+i+'" class="likebtn jo" >Like</span></a></div>\
+									</div>\
+							</div>'
+					  }
+			            htmlData=htmlData+'\
+			    </div>';
+			     document.getElementById("ht").innerHTML=htmlData;
+		  }
+     }
+xmlhttp.open("GET","http://it-ebooks-api.info/v1/search/php%20mysql",true);
+xmlhttp.send();
+}
+/*$(document).ready(function(){
+var hght= $(document).height();
+  alert("Background color = " + $("nav").css("height","150p"));
+ // $("nav").css("height", "+hght+'"); 
+
+});*/
+</script>
+</head>
+<body onload=loadXMLDoc();>
+	<div class="wrap" id="ht">
+	
+
+	</div>
+</body>
+</html>

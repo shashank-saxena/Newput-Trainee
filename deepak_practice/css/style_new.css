@@ -1,0 +1,396 @@
+	body {
+		background-image: url("\F:\practise\images\banner_home.jpg");
+	}
+  .wrap{
+		width:100%;
+		height:100%;	
+   }
+  header {
+		background-color:#b7ce4a;
+		color:white;
+		text-align:center;
+		padding:30px;	 
+		height:50px;
+  }
+   .logo{
+		float:left;
+		width:30px;
+		height:30px; 
+		font-style: italic;
+		font-weight: bold;
+  }
+  .title{
+	   font-size: 25px;
+	   font-weight: bold;	  
+  }	  
+  .contactus{
+		float: right;
+		background-color:#ea8f2c;
+		color: #ffffff;
+		font-weight:bold;
+		padding: 13px 7px 7px 13px;  
+		border-radius: 8px;
+		cursor: pointer;
+   }  
+  .contactus:hover {
+		background-color: #eee;
+		color:#ea8f2c;
+   }
+  nav{
+		width:250px;
+		float: left;
+		padding: 1px;
+		height: 1300px;
+		border-right: thin solid #6260EA;
+   }
+  .navmenu {
+		height: 42px;
+		padding: 5px;
+		text-align: center;
+		width: 240px;
+		cursor:pointer;
+  } 	
+  .navmenutext{  		
+		font-weight: bold;
+		cursor: pointer;
+		color:#B7CE4A;
+		text-decoration: none;
+   }
+   .navmenutext.active{  		
+		font-weight: bold;
+		cursor: pointer;
+		color: #F29222;
+   }
+   .navmenu a.navmenutext:active{
+		color:#0000;   
+   }  
+   .navmenu:hover{
+		background-color:#DDD0D0;
+   }   
+   .navmenu a.navmenutext:hover{
+		
+		color:#ffffff;
+		font-weight: normal;
+		font-style: oblique; 
+   }   
+   .bgEEE {
+		background: #DDD0D0;
+   }
+   .greyboxpadding {
+		/*padding:10px;*/
+		overflow-x: hidden;
+   }
+  .box-container{
+		background: none repeat scroll 0 0 #ffffff;
+		border-radius: 8px;
+		float: left;
+		height: 445px;
+		width: 225px;
+		margin:10px;
+   }
+  .image-container {
+		margin-bottom: 32px;
+		margin-top: 0px;
+		width: 225px;
+		height: 255px;
+   }
+   .image-box{
+		width:225px;
+		height:285px;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+   }
+   .book-title{
+		font-size: 14px;
+		font-style: normal;
+		height: 35px;
+		padding: 5px;
+		width: 215px;
+		text-align:center;
+		font-weight:bold;
+		color: #0000 !important;
+    }   
+	.book-description{
+		color: #999;
+		font-size: 12px;
+		font-style: normal;
+		height: 50px;
+		width: 215px;
+		padding:1px;
+		height:50px;
+		text-align:center;
+   }   
+   .
+   .activity-button{
+		margin:5px;
+		width:30px;
+		float:left;
+   }  
+   .activity-like{
+		margin-bottom:7px;	 
+	}
+   .activity-count{
+		font-size:x-small;
+		overflow-x:hidden;
+		width: 25px;
+		margin-top:7px;
+		height:22px;
+   }	
+   .bottom-description{
+		width:225px;
+		margin-left:0px;
+		height:44px;
+		cursor:pointer;
+	
+	}
+ /* display: inline-block;
+        bottom-description:hover{
+        background-color:#D9DEE0;
+	    width:208px;
+   }*/
+
+   .bottom-description-button {
+		float: left;
+		font-size: 12px;
+		height: 25px;
+		margin: 10px;
+		width: 55px;
+   }
+   .hr-line{
+		margin-bottom:5px;
+		border-top:thin solid;
+		border-color:#DDD0D0;
+   } 
+   .pint-button{
+		background-color: #D22A32;
+		border-radius: 2px;
+		color: #FFFFFF;
+		padding: 5px;
+		width:55px;
+		margin:2px;
+    }
+   .send-button{   
+		background-color: #969696;
+		border-radius: 2px;
+		color: #ffffff;
+		padding: 5px 10px;
+		width:55px;
+		margin:5px;
+    }  
+   .like-button{
+		background-color: #B7CE4A;
+		border-radius: 2px;
+		color: #ffffff;
+		padding: 5px 13px;
+		width: 45px;
+		margin:1px;
+   }  
+   .like-button:hover {
+		background-color: #D1EF7C;
+		color:#ffffff;
+   }     
+   .send-button:hover {
+		background-color: #D2D3CF;
+		color:#ffffff;
+   }  
+   .pint-button:hover {
+		background-color: #EA8A8A;
+		color:#ffffff;
+   }
+   .loading-indicator{
+		color: #686eed;;
+		text-align: center;
+   }
+  
+   .dotNavholder {
+	    margin: 0 auto;
+	    width: 125px;
+		padding:5px;
+		height: 30px;
+   }
+  .pgDot {
+		background: transparent url("file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/images/oranjdot-blank.jpg") no-repeat scroll 0 0;
+		display: block;
+		height: 19px;
+		/*margin-top: 3px;*/
+		width: 25px;
+		float:left;
+	}
+	.pgDot:hover, .pgDot.active {
+		background: transparent url("file:///Users/macbook/Documents/github/Newput-Trainee/deepak_practice/images/oranjdot1.jpg") no-repeat scroll 0 0;
+		display: block;
+		height: 19px;
+		width: 25px;
+	}
+	.pagination-box{
+		height: 40px;
+		
+    }	
+    .description-book-container{   
+		background: #DDD0D0 none repeat scroll 0 0;
+		height: 1000px;
+		margin: 10px;
+	}
+	.description-book-leftbar {
+		height: 560px;
+		margin-bottom: 32px;
+		margin-top: 0;
+		width: 425px;
+		float:left;
+    }
+    .description-image-box {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		height: 560px;
+		width: 425px;
+    }
+    .description-book-rightbar{
+	    background-color: #ffffff;
+		border-radius: 8px;
+		float: left;
+		margin-left: 5px;
+    }   
+    .description-book-title {
+		font-size: 17px;
+		font-style: normal;
+		font-weight: bold;
+		height: 50px;
+		padding: 5px;
+		text-align: center;
+		width: 490px;
+    }
+    .description-book-content {
+	 	color: #999;
+		font-size: 17px;
+		font-style: normal;
+		height: 300px;
+		overflow: auto;
+		padding: 15px;
+		text-align: center;
+		width: 470px;
+    }
+    .description-book-bottom {
+		height: 160px;
+		margin-left: 0;
+		width: 500px;
+		
+   }
+   .book-label{
+	    float:left;
+	    width:90px;
+		padding:5px;
+   }   
+   .book-detail{
+	    float:left;
+	    width:130px;
+		padding:5px;
+	   
+    }   
+   .description-book-button-content {
+		float: left;
+		font-size: 12px;
+		height: 25px;
+		margin: 10px;
+		width: 55px;
+   }
+   footer{
+		 text-align:center;
+		 color:white;
+		 background-color:#3333ad;
+		 padding:10px;
+		 clear:both;	
+   }  
+   .bottom-description {
+    
+   }
+
+
+   /* media query */
+
+
+   @media screen and (max-width: 500px) {
+    
+   .wrap{
+		width:100%;
+		height:100%;	
+   }
+   .greyboxpadding {
+    padding: 5px;
+  }
+   .logo{
+		display: none;
+  } 
+  .contactus{
+	    float: left;
+        font-weight: normal;
+        padding: 6px 0 7px 10px;
+        width: 235px;
+   }  
+  nav{
+	height: 270px;
+    padding: 1px;
+    width: 100%;
+   }
+  .navmenu {
+    height: 20px;
+    width: 100%;
+  }	
+   .htmlwrapper{
+   		clear:both;
+   }
+  .box-container{
+		width: 95%;
+   }
+  .image-container {
+		width: 100%;
+   }
+   .image-box{
+		width:99%;
+   }
+   .book-title{
+		width: 95%;
+    }   
+	.book-description{
+		width: 100%;
+    }   
+    .bottom-description{
+	    width: 100%;
+	}
+  .bottom-description-button {
+		margin: 10px 10px 10px 23px;
+        width: 60px;
+   }
+
+   .loading-indicator{
+		color: #686eed;;
+		text-align: center;
+   }
+  
+   .dotNavholder {
+	    margin: 0 auto;
+	    width: 125px;
+		padding:5px;
+		height: 30px;
+   
+    }	
+	.description-book-leftbar {
+		width: 100%;	
+		height: 535px;
+   }
+   .description-image-box {
+		width:100%;
+   }
+    .description-book-title {
+		width: 95%;%;
+		height: 40px;
+		margin-top: 5px;
+   }
+   .description-book-content {
+		width: 92%;
+   }
+   .description-book-bottom {
+		width: 100%;
+		
+   }
+ 
+  }
