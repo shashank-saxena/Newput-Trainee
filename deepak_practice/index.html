@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Training Program</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="basic tags">
+<meta name="keywords" content="html,css,xml">
+<meta name="author" content="Hege Refsnes">
+<link rel="stylesheet" href="css/style_new.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="application/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/mustache.js"></script>
+<script type="text/javascript" src="js/mustache-demos.js"></script>
+<base href="/images/" >
+
+
+
+</head>
+<body>
+	<div class="wrap">	 
+		<header>
+		<!--<img src="solution-banner.jpg" height="90px;" width="1336px;" alt="logo" />-->
+			<div class="logo">E-Library</div>
+			<div class="title">E-Library</div>
+			<div class="contactus">Contact-Us&nbsp;<b>800-3453455</b></div>
+		</header>
+		 <nav>		   
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext active" data-book-type="php">Php Books</a></div>
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="java">Java Books</a></div>
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="ruby">Ruby Books</a></div>
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type=".net">.Net Books</a></div>
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="oracle">Oracle Books</a></div>		  
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="python">Python Books</a></div>
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="html">Html Books</a></div>
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="css">CSS Books</a></div>		  
+		   <div class="navmenu"><a href="javascript:void(0)" class="navmenutext" data-book-type="jquery">JQuery Books</a></div>
+		  </nav>
+		<div class="htmlwrapper">
+		<div class="bgEEE greyboxpadding grid-container">	
+			
+		</div>
+		<div class="pagination-box"></div>	
+		</div>
+		<footer>
+		Copyright © Test.com
+	    </footer>
+	</div>	
+</body>
+<script id="gridWrapper" type="text/template">
+			<div class="box-container">
+			 <div class = "image-container">
+					<img src={{Image}} alt="Practise" class="image-box" >
+			 </div>
+			<div class="book-title">{{Title}}</div>
+			<div class="hr-line"></div>
+			<div class="book-description">{{Description}}..</div>
+			<div class="hr-line"></div>
+			<div class="bottom-description">
+					
+			    <div class="bottom-description-button"><span class="pint-button"  data-button-type="pintit{{ID}}">&nbsp;Pint it &nbsp;</span></div>
+				<div class="bottom-description-button"><span class="send-button"  data-button-type="{{ID}}">View</span></div>
+				<div class="bottom-description-button"><span class="like-button"  data-value="Like" data-button-type="like{{ID}}">Like</span></div>
+				
+			</div>
+			</div>
+</script>
+<script id="bookWrapper" type="text/template">
+         <div class="description-book-container">
+				<div class="description-book-leftbar ">
+					 <img src = "{{Image}}" alt= "Practise" class= "description-image-box" >
+				</div>
+				<div class="description-book-rightbar">
+				<div class="description-book-title">{{Title}}</div>
+				<div class="hr-line"></div>
+				<div class="description-book-content ">{{Description}}</div>
+				<div class="hr-line"></div>
+				<div class="description-book-bottom">
+				<div class="book-label">Publish Year:</div>
+				<div class="book-detail">{{Year}}</div>
+				<div class="book-label">Author:</div>
+				<div class="book-detail">{{Author}}</div>
+				<div class="book-label">Pages:</div>
+				<div class="book-detail">{{Page}}</div>
+				<div class="book-label">Publisher:</div>
+				<div class="book-detail">{{Publisher}}</div>
+				<div class="book-label">Download:</div>
+				<div class="book-detail"><a href="'+book.Download+'">{{Download}}</a></div>
+				<div class="book-label">ISBN Nu.:</div>
+				<div class="book-detail">{{ISBN}}</div>
+				</div>
+				</div>
+			</div>
+</script>
+<script id="paginationWrapper" type="text/templete">
+			<div class="pagination">
+			<div class="dotNavholder">
+			<div data-page-number="1" data-book-type-page="{{bookType}}" class="pgDot"></div>
+			<div data-page-number="2" data-book-type-page="{{bookType}}" class="pgDot"></div>
+			<div data-page-number="3" data-book-type-page="{{bookType}}" class="pgDot"></div>
+			<div data-page-number="4" data-book-type-page="{{bookType}}" class="pgDot"></div>
+			<div data-page-number="5" data-book-type-page="{{bookType}}" class="pgDot"></div>
+			</div>
+			</div>
+</script>
+</html>
