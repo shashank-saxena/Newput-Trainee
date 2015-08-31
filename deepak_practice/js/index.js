@@ -1,36 +1,40 @@
 
-
 $(document).ready(function(){
-
 	var requestUrl = "http://it-ebooks-api.info/v1/search/php%20mysql";
 	var html = new getHtml();
 	html.requestWrapper(requestUrl);
 	html.actionActivity();
 });
- 
-function  getHtml(){
+
+var gHtml = new getHtml();
+gHtml.requestWrapper(requestUrl)
+
+
+function getHtml() {
 	
-var container=this;
-this.requestWrapper = function(requestUrl){
-		
-	$.ajax({url:requestUrl,
-	      success:function(result){
-			    	fetchHtml(result);
-			      },
-	      error:function(result){
-			       alert("Error Occurring!");
-			    }		 
-	});
-}
+	var privateProperties = null;
+	this.publicProperties = null;
 	
-fetchHtml = function(result){
+	var container=this;
+	this.requestWrapper = function(requestUrl){
+		$.ajax({url:requestUrl,
+			success:function(result){
+				fetchHtml(result);
+			},
+			error:function(result){
+				alert("Error Occurring!");
+			}
+		});
+	}
+	
+var fetchHtml = function(result){
 		   	var boxes = ""; 
 			for(var i = 0; i < result.Books.length; i++){
 			    boxes += getBoxHtml(result.Books[i]);		       
 			}	
 			$(".grid-container").html(boxes);
    
-}
+};
 	
 getBoxHtml = function(book){ 	     
 	     
@@ -98,17 +102,17 @@ this.actionActivity = function(){
 
 descriptionSlicer = function(description){
 	var descr = description.slice(0,100);
-	   return descr;
+	return descr;
 }
 
 bookRequestWrapper = function(requestUrl){
 	$.ajax({url:requestUrl,
-	      success:function(result){
-			    	bookDataWrapper(result);	
-			      },
-	      error:function(result){
-			       alert("Error Occurring!");
-			    }		 
+		success:function(result){
+			bookDataWrapper(result);	
+		},
+	    error:function(result){
+	    	alert("Error Occurring!");
+		  }		 
 	 });	  
 	
 }	

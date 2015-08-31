@@ -1,0 +1,49 @@
+@import "variable.less";
+
+
+.btn {
+    width: 200px;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: @bold;
+    padding: 13px 7px 7px 13px;
+    text-align: center;
+    border: solid;  
+   
+    &.btn-primary {
+	    background-color: @primary;
+	    border-color: @primary;
+	    
+	    &.btn-bordered {
+        background-color: @white;
+        color: @primary   
+   		}
+    }
+    
+    &.btn-secondary {
+	    background-color: @secondary;
+	    border-color: @secondary;
+	    
+	    &.btn-bordered {
+        background-color: @white;
+        color: @secondary   
+   		}
+    }
+    
+    &.btn-danger {
+	    background-color: @danger;
+	    border-color: @danger;
+	    
+	    &.btn-bordered {
+        background-color: @white;
+        color: @danger   
+   		}
+    } 
+}
+
+.btn-spacing {
+    padding: 5px;
+    width: 200px;
+}
+

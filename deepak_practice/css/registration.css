@@ -1,0 +1,55 @@
+.wrap {
+	background-color: #F9BE02;	
+	height: 1000px;
+	padding: 20px;
+}
+.head {
+	color: #3479DD;
+	tex-align: center;	
+}
+.reg-form {
+	padding: 10px;	
+	border-radious: 8px;
+	border: solid #000;
+	margin-left: 300px;
+	margin-right: 300px;
+	height:400px;
+}
+.reg-label {
+    float: left;
+    width: 165px;
+    color: #ffffff;	
+    padding: 2px;
+}
+.reg-txt-box {
+	float: left;
+	width: 395px;
+	padding: 2px;
+}
+.clear {
+	clear: both;
+}
+.reg-btn {
+	float: right;
+	
+}
+.form-btn {
+	margin-right: 305px;
+    padding: 10px;
+}
+.error {
+    display: none;
+    margin-left: 10px;
+}       
+			 
+.error-show {
+    color: red;
+    margin-left: 10px;
+}
+input.invalid, textarea.invalid {
+    border: 2px solid red;
+}
+ 
+input.valid, textarea.valid {
+    border: 2px solid green;
+}
