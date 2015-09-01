@@ -1,0 +1,64 @@
+.message {
+  color: #ff0000;
+  display: none;
+}
+div {
+  padding: 11px;
+}
+#err-msg {
+  color: #ff0000;
+  height: 20px;
+  display: none;
+  width: 200px;
+}
+h3 {
+  color: #3b86c2 !important;
+  text-align: center;
+}
+input {
+  width: 100%;
+}
+.require {
+  color: #ff0000;
+}
+label {
+  font-size: 12px;
+}
+.submit-btn {
+  clear: both;
+}
+.submit-btn input {
+  width: 11%;
+  height: 37px;
+}
+.container-fluid {
+  border-bottom: 2px solid #d3d3d3;
+  background-color: #e3e5e7;
+}
+ul {
+  list-style-type: none;
+  width: 37%;
+  margin: 0 auto;
+}
+ul li {
+  display: inline;
+  margin: 10px;
+  cursor: pointer;
+}
+ul li.active {
+  background-color: #3b86c2;
+  border-radius: 9px;
+  padding: 6px;
+}
+.social-links {
+  margin: 0 auto;
+  width: 26%;
+}
+.copyright {
+  font-size: 15px;
+  margin: 0 auto;
+  width: 17%;
+}
+.err {
+  display: block;
+}

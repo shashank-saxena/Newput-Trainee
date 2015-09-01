@@ -1,0 +1,200 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.btn {
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 900;
+  height: 32px;
+  margin: 32px;
+  width: 102px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+.btn.btn-primary {
+  background-color: orange;
+  border: 2px solid orange;
+  color: white;
+}
+.btn.btn-primary.btn-border {
+  color: orange;
+}
+.btn.btn-success {
+  background-color: blue;
+  border: 2px solid blue;
+}
+.btn.btn-success.btn-border {
+  color: blue;
+}
+.btn.btn-danger {
+  background-color: red;
+  border: 2px solid red;
+}
+.btn.btn-danger.btn-border {
+  color: red;
+}
+.btn .static-class {
+  background-color: green;
+}
+.btn.btn-border {
+  background-color: white;
+}
+.btns-container {
+  width: 70%;
+}
+nav {
+  text-align: center;
+}
+nav ul li {
+  color: white;
+  display: inline-block;
+  padding: 7px 17px;
+  cursor: pointer;
+}
+nav ul li:hover {
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+header {
+  background-color: #000;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+header h1 {
+  color: white;
+  margin: 0;
+  padding-top: 10px;
+  text-align: center;
+}
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 220px;
+  /* Height of the footer */
+  background: #000;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  position: relative;
+}
+.footer-wrapper .quick-links {
+  width: 10%;
+}
+.footer-wrapper .quick-links a {
+  color: white;
+}
+.footer-wrapper .quick-links h2 {
+  color: white;
+}
+.footer-wrapper {
+  margin: 0 auto;
+  width: 90%;
+}
+.quick-links {
+  float: left;
+}
+.quick-links ul li {
+  list-style-type: none;
+  padding: 2px;
+}
+.quick-links ul li:hover {
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.know-more {
+  float: left;
+  width: 82%;
+}
+.know-more h2 {
+  color: white;
+  text-align: center;
+}
+.know-more .social-links li {
+  display: inline-block;
+  padding: 5px;
+}
+.social-links {
+  margin: 0 auto;
+  width: 180px;
+}
+.social-links li img {
+  height: 25px;
+  width: 30px;
+}
+.copyright {
+  clear: both;
+  color: white;
+  text-align: center;
+}
+.wrapper {
+  width: 80%;
+  margin: -15px auto 0;
+  padding: 0;
+  background-color: #eeeeee;
+  min-height: 470px;
+}
+.wrapper .sidebar {
+  text-align: center;
+  width: 20%;
+}
+.wrapper .content {
+  width: 60%;
+  overflow: hidden;
+}
+.content .book {
+  display: inline-block;
+  border: 2px solid grey;
+  text-align: center;
+  margin-top: 25px;
+}
+.content .book .book-cover {
+  width: 200px;
+  height: 156px;
+}
+.content .book .book-cover img {
+  width: 100%;
+  height: 156px;
+}
+.content .book-details {
+  margin-bottom: 8px;
+  text-align: center;
+}
+.content .book-details input {
+  height: 26px;
+  width: 57px;
+}
+.content label {
+  display: block;
+}
+.sidebar {
+  float: left;
+}
+.sidebar ul {
+  padding: 0;
+}
+.sidebar ul li {
+  list-style-type: none;
+  padding: 7px;
+}
+.sidebar ul li:hover {
+  color: black;
+  font-weight: bolder;
+  cursor: pointer;
+}

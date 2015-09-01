@@ -1,0 +1,68 @@
+@import "variable";
+.message {
+    color:@warning;
+    display: none;
+}
+div {
+    padding: 11px;
+}
+#err-msg {
+    color:@warning;
+    height: 20px;
+    display: none;
+    width: 200px;  
+}
+h3{
+    color:@heading !important;
+    text-align:center;
+}
+input{
+    width:100%;
+}
+.require{
+    color:@warning;
+}
+label{
+    font-size:12px;
+}
+.submit-btn{
+    clear:both;
+    
+    input{
+        width:11%;
+        height:37px;
+    }
+}
+.container-fluid{
+    border-bottom:2px solid @header-border-color;
+    background-color: @header-background;
+}
+ul{
+    list-style-type:none;
+    width:37%;
+    margin: 0 auto;
+    
+    li{
+        display:inline;
+        margin:10px;
+        cursor:pointer;
+        
+       &.active{
+            background-color:@heading;
+            border-radius: 9px;
+            padding: 6px;
+        }
+    }
+}
+.social-links{
+    margin:0 auto;
+    width:26%;
+}
+.copyright{
+    font-size: 15px;
+    margin: 0 auto;
+    width: 17%;
+}
+.err{
+    display:block;
+}

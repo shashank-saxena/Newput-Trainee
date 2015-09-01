@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/myscripts.js"></script> 
+<title>Sign up</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <h1>Form Example</h1>
+            <ul>
+                <li class="active">Sign Up Home</li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Contact Us</li>
+            </ul>
+        </header>
+    </div>
+    <div class="container">
+	    <h3>SIGN UP FORM</h3>
+	    <form method="post" action="formsubmitted.html" class="row" name="myform" onsubmit="return validate();">
+	        <div class="firstname col-sm-6">
+	            <label>required</label><span class="require">*</span>
+	            <input type="text" name="firstname" class="required" placeholder="First Name"/>
+	        </div>
+	        <div class="lastname col-sm-6">
+	           <label>required</label><span class="require">*</span>
+               <input placeholder="Last Name" type="text" name="lastname" ="Last Name" class="required"/>
+	        </div>
+	        <div class="email col-sm-12">
+	            <label>required</label><span class="require">*</span>
+	            <input placeholder="Email" type="text" name="email" class="required"/>
+	        </div>
+	        <div class="password col-sm-6 pwd">
+	            <label>require</label><span class="require">*</span>
+	            <input placeholder="Password" type="password" name="pwd" class="required"/>
+	        </div>
+	        <div class="confirm-password cpwd col-sm-6">
+	           <label>require</label><span class="require">*</span>
+               <input placeholder = "Re-enter Password" type="password" name="cpwd" class="required"/>
+	        </div>
+	        
+	        <div class="city col-sm-6">
+	            <label>required</label><span class="require">*</span>
+	            <select class="required" name="city">
+	                <option value="">--Select city--</option>
+	                <option value="indore">Indore</option>
+	                <option value="bhopal">Bhopal</option>
+	                <option value="gwalior">Gwalior</option>
+	                <option value="itawa">Itawa</option>
+	            </select>
+	        </div>
+	        
+	        <div id="err-msg"></div>
+	        <div class="submit-btn">
+	            <input type="submit" name="submit" value="Submit" />
+	        </div>
+	    </form>
+    </div>
+    <div class="container-fluid">
+       <footer>
+            <ul>
+                <li>Sign Up Home</li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Contact Us</li>
+            </ul>
+            <ul class="social-links">
+                    <li><img src="images/facebook-icon.png"/></li>
+                    <li><img src="images/pinterest.png"/></li>
+                    <li><img src="images/twitter-icon.png"/></li>
+            </ul>
+            <div class="copyright">@Copyright:2015</div>
+        </footer>
+    </div>
+</body>
+</html>
