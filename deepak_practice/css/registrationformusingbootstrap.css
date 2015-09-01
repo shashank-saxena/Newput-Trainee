@@ -1,0 +1,43 @@
+.nav-header {
+	 margin-bottom: 0px; 	
+}
+.wraper-margin-top-minus {
+	margin-top:-20px;
+}
+.wrap {
+	width: 300px;
+	margin: 20px auto;
+	padding: 8px;
+	border: solid thin #000;
+}
+.container-fluid {
+	background-color: #F9BE02;	
+}
+.main-header {
+	margin-bottom: 20px;
+    text-align: center;	
+}
+.hidden-message {
+    display: none;
+    margin-left: 10px;
+}       
+.error-show {
+    color: red;
+    margin-left: 10px;
+}
+.footer {
+	height:50px;	
+}
+.footer-menu {
+	text-align: center;	
+	padding:2px 1px;
+	margin: 0 0 2px;
+}
+.copy-right {
+	text-align: center;
+}
+.footer-height {
+	height: 50px;
+	margin: 10px 0;
+	text-align: center;
+}

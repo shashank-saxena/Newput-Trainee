@@ -1,78 +1,71 @@
-$(document).ready(function() {
-
-	$('#example').datepick();	
-
-	$('#fisrtName').blur(function() {
-		var fName=$(this).val();
-		if(fName) {
-		    $('#fisrtName').next().removeClass("error-show").addClass("error");}
-		else {
-			 $('#fisrtName').next().removeClass("error").addClass("error-show");}
+  function loadJs() {
+	 
+	$('#date-of-birth').datepick();	
+	 
+	$('#first-name').blur(function() {
+		var firstName=$(this).val();
+		if(firstName) { hideError("#first-name", "hidden-message"); }
+		else { showError("#first-name", "error-show"); }
 	});
 
-	$('#lastName').blur(function() {
-		var lName=$(this).val();
-		if(lName) {
-			$('#lastName').next().removeClass("error-show").addClass("error");}
-		else {
-			$('#lastName').next().removeClass("error").addClass("error-show");}
+	$('#last-name').blur(function() {
+		var lastName=$(this).val();
+		if(lastName) { hideError("#last-name", "hidden-message"); }
+		else { showError("#last-name", "error-show"); }
 	});
 
 	$('#email').blur(function() {
 		var email=$(this).val();
 		var emailRex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 		var is_email=emailRex.test(email);
-		if(is_email) {
-			$('#email').next().removeClass("error-show").addClass("error");}
-		else {
-			$('#email').next().removeClass("error").addClass("error-show");}
+		if(email) {
+		    if(is_email) { hideError("#email", "hidden-message"); }
+			else { var message = "Incorrect Email!"; showErrorMessage("#email", "error-show",message) }
+		}	
+		else { showError("#email", "error-show"); }
 	});
 
-	$('#example').blur(function() {
+	$('#date-of-birth').blur(function() {
         setTimeout(function() { 
-        	var dob=new Date($('#example').val());
-	        if(dob) {
-	        	$('#example').next().removeClass("error-show").addClass("error");}
-	        else {
-	        	$('#example').next().removeClass("error").addClass("error-show");}
+        	var dob=new Date($('#date-of-birth').val());
+	        if(dob) { hideError("#date-of-birth", "hidden-message"); }
+	        else { showError("#email", "error-show"); }
 	    
 	        var today=new Date();
 	        var dayDiff = Math.ceil(today - dob) / (1000 * 60 * 60 * 24 * 365);
 	        var age = parseInt(dayDiff);
 	        $('#age').val(age);
-	     }, 2000);
+	    }, 1500);
        
-	});
-
-	$('#age').blur(function() {
-	    var age=$(this).val();
-	    if(age) {
-	    	$('#age').next().removeClass("error-show").addClass("error");}
-	    else {
-	    	$('#age').next().removeClass("error").addClass("error-show");}
 	});
 	
 	$('#password').blur(function() {
 	    var password=$(this).val();
-	    
-	    if(password) {
-	    	$('#password').next().removeClass("error-show").addClass("error");}
-	    else {
-	    	$('#password').next().removeClass("error").addClass("error-show");}
+	    if(password) { hideError("#password", "hidden-message"); }
+	    else { showError("#password", "error-show"); }
 	});
 	
-	$('#confirmPassword').blur(function() {
+	$('#confirm-password').blur(function() {
 	    var coonfirmPassword=$(this).val();
 	    
 	    if(coonfirmPassword) {
-		    if($(password).val()==coonfirmPassword) {
-		    	$('#confirmPassword').next().removeClass("error-show").addClass("error");}
-		    else {
-		    	$('#confirmPassword').next().removeClass("error").addClass("error-show").text("Confirm Password are not mathing");
-		    }
+		    if($(password).val()==coonfirmPassword) { hideError("#confirm-password", "hidden-message"); }
+		    else { var message= "Confirm Password are not mathing"; showErrorMessage("#confirm-password", "error-show",message); }
 		}
-	    else {
-	    	$('#confirmPassword').next().removeClass("error").addClass("error-show");}
+	    else { showError("#confirm-password", "error-show"); }
 	});
 	
-});
+	var showError = function showError(id,changeClass,message) {
+		 $(id).next().removeClass("hidden-message").addClass(changeClass); 
+		
+	}
+	
+	var hideError = function(id,changeClass) {	
+		$(id).next().removeClass("error-show").addClass(changeClass);
+		
+	}
+	
+	var showErrorMessage = function showErrorMessage(id,changeClass,message) {
+		$(id).next().removeClass("hidden-message").addClass(changeClass).text(message);
+	}
+ }

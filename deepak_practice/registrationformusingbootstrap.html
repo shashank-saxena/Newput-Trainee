@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/registrationformusingbootstrap.css">
+		
+		<script type="text/javascript" src="js/registration.js"></script>
+		<link rel="stylesheet" type="text/css" href="kelthdatepick/jquery.datepick.css"> 
+		<script type="text/javascript" src="kelthdatepick/jquery.plugin.js"></script> 
+		<script type="text/javascript" src="kelthdatepick/jquery.datepick.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				loadJs();
+			});
+
+		</script>
+    </head>	
+    <body>
+	   	<nav id="myNavbar" class="navbar navbar-default navbar-inverse" role="navigation">
+	   		<div class="navbar-header">
+	   			<button type="button" class="navbar-toggle"  data-toggle="collapse"  data-target="#navbarCollapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+					<a class="navbar-brand" href="#">Hello</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" target="_blank">Home</a></li>
+					<li><a href="" target="_blank">About</a></li>
+					<li><a href="" target="_blank">Contact</a></li>
+				</ul>
+			</div>
+		</nav> 
+		<div class="container-fluid wraper-margin-top-minus">
+	    	<div class="wrap text-info">
+				<form>
+				    <h3 class="head main-header text-warning">Registration Form</h3>
+					<div class="form-group">
+						<label for="firstname">First Name</label>
+						<input type="text" class="form-control" id="first-name" placeholder="First Name">
+						<span class="hidden-message">First Name is required</span>
+					</div>
+					<div class="form-group">
+					    <label for="lastname">Last Name</label>
+					    <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+					    <span class="hidden-message">Last Name is required</span>
+					</div>
+					<div class="form-group">
+					    <label for="email">Email</label>
+					    <input type="email" class="form-control" id="email" placeholder="Email">
+					    <span class="hidden-message">Email is required</span>
+					</div>
+					<div class="form-group">
+					    <label for="dateofbirth">Date Of Birth</label>
+					    <input type="text" class="form-control" id="date-of-birth">
+					    <span class="hidden-message">Date of Birth is required</span>
+					</div>
+					<div class="form-group">
+					    <label for="age">Age</label>
+					    <input type="readonly" class="form-control" id="age">
+					    <span class="hidden-message">Age is required</span>
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" id="password">
+						<span class="hidden-message">Password is required</span>
+					</div>
+					<div class="form-group">
+						<label for="confirmpassword">Confirm Password</label>
+						<input type="password" class="form-control" id="confirm-password">
+						<span class="hidden-message">Confirm Password is required</span>  
+					</div>			  			  
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>	
+		</div>
+		<footer class="footer bg-primary">
+	    <p class="footer-menu pre">Home | About | Contact</p>
+		<p class="copy-right">© Copyright 2015. All Rights Reserved.</p>   
+	    </footer>
+	    
+	</body>	
+</html>
