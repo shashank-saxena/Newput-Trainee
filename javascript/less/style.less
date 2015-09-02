@@ -13,7 +13,7 @@ div {
     width: 200px;  
 }
 h3{
-    color:@heading !important;
+    color:@heading;
     text-align:center;
 }
 input{
@@ -33,36 +33,108 @@ label{
         height:37px;
     }
 }
-.container-fluid{
+.wrapper{
     border-bottom:2px solid @header-border-color;
     background-color: @header-background;
+    
+    .navigation{
+        margin: 0 auto;
+        width:50%;
+    }
+    
+    .footer-links{
+        margin: 0 auto;
+        width:50%;
+    }
 }
 ul{
     list-style-type:none;
-    width:37%;
-    margin: 0 auto;
     
     li{
+        cursor:pointer;
         display:inline;
         margin:10px;
-        cursor:pointer;
-        
+        padding:10px;
+               
        &.active{
             background-color:@heading;
-            border-radius: 9px;
-            padding: 6px;
+            border-radius: 9px;   
         }
     }
 }
 .social-links{
     margin:0 auto;
-    width:26%;
+    width:34%;
 }
 .copyright{
     font-size: 15px;
     margin: 0 auto;
-    width: 17%;
+    width: 22%;
 }
 .err{
     display:block;
 }
+.cell-wrapper{
+    height:380px;
+    position:relative;
+    width: 100%;
+    
+    span{
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        width: 100%;
+    }
+    .author{
+        font-weight: 300;
+    }
+    
+    img{
+        border-radius: 9px 9px 0 0;
+        height: 135px;
+        width: 100%;
+    }
+    
+    .detail{
+        border: 1px solid #eee;
+        border-radius: 5px;
+        padding: 0;
+        
+        .short-detail{
+            height:100px;
+        }
+    }
+      
+    .description{
+        font-weight: 300;
+        padding:5px;
+    }
+    
+    .link{
+        border: 1px solid #eee;
+        text-align: center;
+        background-color:#F6F6F6;
+    }
+}
+.columns{
+    float: left;
+    padding: 0;
+    width: 18%;
+}
+.col{
+    float:left;
+    width:50%;
+}
+.ribbon{
+    background-color: #4FF;
+    border: 1px solid grey;
+    border-radius: 6px;
+    padding: 0;
+    position: absolute;
+    right: 12px;
+    top: 28px;
+    width: 55%;
+}
+
+
+    

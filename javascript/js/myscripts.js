@@ -1,3 +1,11 @@
+//$(document).ready(function(){
+//	$('.submit-btn').click(function(){
+//		var status = validate();
+//		if(status.toString() == 'true'){
+//			alert('here');
+//		}
+//	});
+//})
 function validate(){
 	errors = 0 ;
     	var notempty = [];
@@ -102,23 +110,3 @@ function validate(){
 		   return false;
 	   }
    }
-   
-function fetchBooksDetails(){
-	var xmlhttp;
-	if (window.XMLHttpRequest)
-	{	// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-		var url = "http://it-ebooks-api.info/v1/search/php%20mysql";
-		xmlhttp.open("GET",url,false);
-		xmlhttp.send();
-		var data = xmlhttp.responseText;
-		//console.log(data);
-		
-
-	} else
-	{	// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	console.log(xmlhttp);
-	
-}

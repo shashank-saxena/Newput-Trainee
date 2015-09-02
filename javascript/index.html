@@ -7,46 +7,47 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="js/myscripts.js"></script> 
+<script src="js/myscripts.js"></script>
+<script src="js/ajaxscript.js"></script>
+<script src="js/mustache.js"></script>
 <title>Sign up</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="wrapper">
         <header>
             <h1>Form Example</h1>
-            <ul>
-                <li class="active">Sign Up Home</li>
-                <li>About Us</li>
-                <li>Services</li>
-                <li>Contact Us</li>
+            <ul class="navigation">
+                <li class="active" data-attribute="index">Sign Up Home</li>
+                <li data-attribute="about">About Us</li>
+                <li data-attribute="services"><a href="services.html">Services</a></li>
+                <li data-attribute="contact">Contact Us</li>
             </ul>
         </header>
     </div>
     <div class="container">
 	    <h3>SIGN UP FORM</h3>
-	    <form method="post" action="formsubmitted.html" class="row" name="myform" onsubmit="return validate();">
-	        <div class="firstname col-sm-6">
+	    <form method="post" action="" class="row" name="myform" onsubmit="return validate();">
+	        <div class="firstname col">
 	            <label>required</label><span class="require">*</span>
 	            <input type="text" name="firstname" class="required" placeholder="First Name"/>
 	        </div>
-	        <div class="lastname col-sm-6">
+	        <div class="lastname col">
 	           <label>required</label><span class="require">*</span>
                <input placeholder="Last Name" type="text" name="lastname" ="Last Name" class="required"/>
 	        </div>
-	        <div class="email col-sm-12">
+	        <div class="email">
 	            <label>required</label><span class="require">*</span>
 	            <input placeholder="Email" type="text" name="email" class="required"/>
 	        </div>
-	        <div class="password col-sm-6 pwd">
+	        <div class="password col pwd">
 	            <label>require</label><span class="require">*</span>
 	            <input placeholder="Password" type="password" name="pwd" class="required"/>
 	        </div>
-	        <div class="confirm-password cpwd col-sm-6">
+	        <div class="confirm-password cpwd col">
 	           <label>require</label><span class="require">*</span>
                <input placeholder = "Re-enter Password" type="password" name="cpwd" class="required"/>
 	        </div>
-	        
-	        <div class="city col-sm-6">
+	        <div class="city col">
 	            <label>required</label><span class="require">*</span>
 	            <select class="required" name="city">
 	                <option value="">--Select city--</option>
@@ -55,17 +56,15 @@
 	                <option value="gwalior">Gwalior</option>
 	                <option value="itawa">Itawa</option>
 	            </select>
-	        </div>
-	        
-	        <div id="err-msg"></div>
+	        </div> 
 	        <div class="submit-btn">
 	            <input type="submit" name="submit" value="Submit" />
 	        </div>
 	    </form>
     </div>
-    <div class="container-fluid">
+    <div class="wrapper">
        <footer>
-            <ul>
+            <ul class="footer-links">
                 <li>Sign Up Home</li>
                 <li>About Us</li>
                 <li>Services</li>
