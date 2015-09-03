@@ -46,7 +46,7 @@ label {
 }
 .wrapper .footer-links {
   margin: 0 auto;
-  width: 37%;
+  width: 43%;
 }
 ul {
   list-style-type: none;
@@ -62,12 +62,12 @@ ul li.active {
 }
 .social-links {
   margin: 0 auto;
-  width: 24%;
+  width: 30%;
 }
 .copyright {
   font-size: 15px;
   margin: 0 auto;
-  width: 17%;
+  width: 23%;
 }
 .err {
   display: block;
@@ -137,4 +137,7 @@ ul li.active {
 }
 footer {
   padding: 12px;
+}
+.clear {
+  clear: both;
 }
