@@ -1,10 +1,11 @@
 @import "variable";
+body{
+    margin: 0;
+    padding: 0;
+}
 .message {
     color:@warning;
     display: none;
-}
-div {
-    padding: 11px;
 }
 #err-msg {
     color:@warning;
@@ -15,6 +16,9 @@ div {
 h3{
     color:@heading;
     text-align:center;
+}
+h1 {
+    margin: 0;
 }
 input{
     width:100%;
@@ -36,15 +40,16 @@ label{
 .wrapper{
     border-bottom:2px solid @header-border-color;
     background-color: @header-background;
+    clear: both;
     
     .navigation{
-        margin: 0 auto;
+        margin: 16px auto;
         width:50%;
     }
     
     .footer-links{
         margin: 0 auto;
-        width:50%;
+        width:37%;
     }
 }
 ul{
@@ -53,7 +58,6 @@ ul{
     li{
         cursor:pointer;
         display:inline;
-        margin:10px;
         padding:10px;
                
        &.active{
@@ -64,20 +68,19 @@ ul{
 }
 .social-links{
     margin:0 auto;
-    width:34%;
+    width:24%;
 }
 .copyright{
     font-size: 15px;
     margin: 0 auto;
-    width: 22%;
+    width: 17%;
 }
 .err{
     display:block;
 }
 .cell-wrapper{
-    height:380px;
+    height: 442px;
     position:relative;
-    width: 100%;
     
     span{
         display: inline-block;
@@ -91,8 +94,7 @@ ul{
     
     img{
         border-radius: 9px 9px 0 0;
-        height: 135px;
-        width: 100%;
+        width:100%;
     }
     
     .detail{
@@ -101,7 +103,8 @@ ul{
         padding: 0;
         
         .short-detail{
-            height:100px;
+            height: 73px;
+            padding: 15px;
         }
     }
       
@@ -114,12 +117,14 @@ ul{
         border: 1px solid #eee;
         text-align: center;
         background-color:#F6F6F6;
+        padding: 9px;
+        border-radius: 0 0 9px 9px;
     }
 }
 .columns{
     float: left;
-    padding: 0;
-    width: 18%;
+    padding: 11px;
+    width: 20%;
 }
 .col{
     float:left;
@@ -128,12 +133,23 @@ ul{
 .ribbon{
     background-color: #4FF;
     border: 1px solid grey;
-    border-radius: 6px;
-    padding: 0;
+    border-radius: 0px 0px 6px 6px;
     position: absolute;
-    right: 12px;
+    right: 0px;
     top: 28px;
     width: 55%;
+}
+.container-class{
+    width:80%;
+    margin: 36px auto;
+}
+.img
+{
+    height: 244px;
+    overflow: hidden;
+}
+footer{
+     padding: 12px;
 }
 
 

@@ -1,20 +1,21 @@
-$(document).ready(function(){
-	$('.navigation li').click(function(){
-		$('.navigation li').each(function(){
-			if($(this).hasClass('active')){
-				$(this).removeClass('active');
-			}
-		})
-		$(this).addClass('active');
-		var page = $(this).attr('data-attribute');
-		if(page == "index"){
-			location.href = "file:///Users/newput/GitHub/Newput-Trainee/javascript/index.html";
-		} else{
-			//fetchBooksDetails();
-			callAjaxContent(page);
-		}
-	});
-});
+//$(document).ready(function(){
+	//renderPageContent();
+//	$('.navigation li').click(function(){
+//		$('.navigation li').each(function(){
+//			if($(this).hasClass('active')){
+//				$(this).removeClass('active');
+//			}
+//		})
+//		$(this).addClass('active');
+//		var page = $(this).attr('data-attribute');
+//		if(page == "index"){
+//			location.href = "file:///Users/newput/GitHub/Newput-Trainee/javascript/index.html";
+//		} else{
+//			//fetchBooksDetails();
+//			callAjaxContent(page);
+//		}
+//	});
+//});
 function callAjaxContent(page){
 	var url = page+".html";
 	$.ajax({
@@ -64,22 +65,30 @@ function renderPageContent(){
 	$.ajax({
 		  url: url,
 		  method : 'GET'
-		}).success(function(data){			  			
-			if(data.Error == 0)
-			{
-				var book = '' ;
-				var html = '';
-				var books = data.Books;
-				for(book in books)
-				{
-					var description = books[book].Description;
-					if(description.length > 0){
-						description = description.substr(0,50);
-					}
-					html += "<div class='columns'><div class='cell-wrapper'><div class='ribbon'>"+books[book].isbn+"</div><img src='"+books[book].Image+"'/><div class='detail'><div class='short-detail'><span class='title'>"+books[book].Title+"</span><span class='author'>by Author</span></div><span class='description'>"+description+"...</span></div><div class='link'><a href='#'>Learn More -></a></div></div></div>";
-				}
-				$('.rows').html(html);
+		}).success(function(data){
+			for(book in data.Books){
+				var desc = data.Books[book].Description;
+				data.Books[book].Description = desc.substr(0,50);
 			}
+			var template = $("#sample_template").html();
+			Mustache.parse(template); 
+			var html = Mustache.render(template, data);
+			$("#unique").html(html);    
+//			if(data.Error == 0)
+//			{
+//				var book = '' ;
+//				var html = '';
+//				var books = data.Books;
+//				for(book in books)
+//				{
+//					var description = books[book].Description;
+//					if(description.length > 0){
+//						description = description.substr(0,50);
+//					}
+//					html += "<div class='columns'><div class='cell-wrapper'><div class='ribbon'>"+books[book].isbn+"</div><img src='"+books[book].Image+"'/><div class='detail'><div class='short-detail'><span class='title'>"+books[book].Title+"</span><span class='author'>by Author</span></div><span class='description'>"+description+"...</span></div><div class='link'><a href='#'>Learn More -></a></div></div></div>";
+//				}
+//				$('.rows').html(html);
+//			}
 		}).error(function(){
 			alert('error');
 		});
