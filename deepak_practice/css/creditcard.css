@@ -1,0 +1,57 @@
+.form-wraper {
+	width: 545px;
+	background-color: #F5F5F5;	
+	padding: 5px;
+	border: solid thin;
+}
+.wraper-margin-top-minus {
+	margin-top: -20px;
+}
+.wrap {
+	width: 60px;
+}
+.side-bar-bg-color {
+	background-color: #F7F2F2;
+	border: thin solid;
+	margin: 7px; 
+}
+.side-bar-pragraph {
+	padding: 10px;
+	margin-top: 10px;
+}
+.pragraph {
+	padding: 10px;
+	font-size: 15px; 
+}
+.pragraph-space {
+	padding: 5px;
+}
+.content-flot {
+	float: left;
+}
+.row-margin {
+	margin-top: 30px;
+}
+.form-input-width {
+	margin:3px;
+	width: 255px;
+}
+.form-input-top-spacing {
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+	
+.form-wraper {
+	width: 295px;
+	background-color: #F5F5F5;	
+	padding: 5px;
+	border: solid thin;
+} 
+.form-input-width {
+	margin:2px;
+	width: 238px;
+}
+ 
+ 
+}

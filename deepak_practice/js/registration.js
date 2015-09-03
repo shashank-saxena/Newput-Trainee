@@ -1,5 +1,5 @@
   function loadJs() {
-	 
+	
 	$('#date-of-birth').datepick();	
 	 
 	$('#first-name').blur(function() {

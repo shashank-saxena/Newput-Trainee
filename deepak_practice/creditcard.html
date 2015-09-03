@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css"  href="css/creditcard.css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+		<script type="text/javascript" src="js/creditcardform.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+		<script src="js/jquery.geocomplete.min.js"></script>
+		
+		<script src="js/jquery.creditCardValidator.js"></script>
+    	<script src="js/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="datepicker/jquery.datepick.css"> 
+		<script type="text/javascript" src="datepicker/jquery.plugin.js"></script> 
+		<script type="text/javascript" src="datepicker/jquery.datepick.js"></script>
+		<script>
+			$(document).ready(function(){
+				creditcardWraper();
+			});		
+		</script>
+   
+	</head>
+	<body>
+		<nav id="myNavbar" class="navbar navbar-default navbar-inverse" role="navigation">
+	   		<div class="navbar-header">
+	   			<button type="button" class="navbar-toggle"  data-toggle="collapse"  data-target="#navbarCollapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+					<a class="navbar-brand" href="#">Hello</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" target="_blank">Home</a></li>
+					<li><a href="" target="_blank">About</a></li>
+					<li><a href="" target="_blank">Contact</a></li>
+				</ul>
+			</div>
+		</nav> 
+		<div class="container wraper-margin-top-minus">
+			<div class="row row-margin">
+				<div class="col-md-3 side-bar-bg-color">
+					<div class="side-bar-pragraph">
+						<p class="pragraph"><span class="glyphicon glyphicon-ok pragraph-space"></span>Please complete your payment to hold your spot</p>
+						<p class="pragraph"><span class="glyphicon glyphicon-ok pragraph-space"></span>Please note there are additional form for necessary to finalize your payment request</p>
+						<p class="pragraph"><span class="glyphicon glyphicon-envelope pragraph-space"></span>If you have any problem please email</p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<form id="commentForm" method="get" action="">	
+						<div class="form-wraper">
+							<fieldset>
+								<div class="form-group content-flot form-input-width">
+									<label for="firstname">First Name</label>
+									<input type="text" class="form-control" name="firstname" placeholder="First Name">
+								</div>
+								<div class="form-group content-flot form-input-width">
+								    <label for="email">Email</label>
+								    <input type="email" class="form-control" name="email" placeholder="Email">
+								</div>
+								<div class="clearfix"></div>
+								<div class="form-group">
+								    <label for="creditcard">Credit Card*</label>
+								    <input type="text" class="form-control credit-card" name="creditcard">
+								    <p class="log"></p>
+								</div>
+								<div class="form-group content-flot form-input-width">
+								    <label for="expirationDate">Expiration Date*</label>
+								    <input type="text" class="form-control" name="expirationDate" id="expirationdate"  placeholder="Expiration Date">
+								</div>
+								<div class="form-group content-flot form-input-width">
+								    <label for="csv">CVS*</label>
+								    <input type="text" class="form-control" name="cvs"  placeholder="CVS">
+								</div>
+								<div class="clearfix"></div>
+								<div class="form-group content-flot form-input-width">
+								    <label for="street">Street*</label>
+								    <input type="text" class="form-control" name="street" id="street" placeholder="Street">
+								</div>
+								<div class="geo-details">
+								<div class="form-group content-flot form-input-width">
+								    <label for="city">City</label>
+								    <input type="text" class="form-control" data-geo="administrative_area_level_2" value=""  name="city" placeholder="City">
+								</div>
+								<div class="clearfix"></div>
+								<div class="form-group content-flot form-input-width">
+								    <label for="state">State</label>
+								    <input type="text" class="form-control" data-geo="administrative_area_level_1" value="" name="state" placeholder="State">
+								</div>
+								<!-- <div class="form-group content-flot form-input-width">
+								    <label for="zip">Zip Code</label>
+								    <input type="text" class="form-control"  name="zip" placeholder="Zip">
+								</div> -->
+								<div class="form-group content-flot form-input-width">
+									<label for="country">Country</label>
+									<input type="text" class="form-control" data-geo="country" value="" name="country">
+								</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="form-group form-input-top-spacing">						    
+								    <textarea rows="4" cols="50" class="form-control" name="terms" >Summer camp refund and cancellation policy Summer camp refund and cancellation policy Summer camp refund and cancellation policy </textarea>
+								</div>
+								<p>
+								<input class="submit" type="submit" value="Submit">
+								</p>
+							</fieldset>							
+						</div>
+					</form>	
+				</div>
+				<div class="col-md-2 side-bar-bg-color ">
+					<p class="side-bar-pragraph">
+						Please note there are additional form for necessary to finalize your payment request
+					</p>
+				</div>
+			</div>			
+		</div>
+	</body>
+</html>
