@@ -9,7 +9,7 @@
 <script>
 String.prototype.stringConvertor = function(){
 	var alphaObj = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seaven", 8: "eight", 9: "nine"};
-	var ob = this; console.log(ob);
+	var ob = this;
 	var str = new String;
 	for(var val in ob){
 		var localRef = '';
@@ -17,7 +17,7 @@ String.prototype.stringConvertor = function(){
 			if((isNaN(parseInt(ob[val])) == true)){
 	            localRef = ob[val];
 	        }else{
-	            var vl = ob[val]; console.log(alphaObj[vl]);
+	            var vl = ob[val];
 	            var newString = alphaObj[vl];
 	            localRef = newString;
 	        }
@@ -25,12 +25,24 @@ String.prototype.stringConvertor = function(){
 		str += localRef; 
     }
 	return str;
-}	    
-$(document).ready(function(){  
+}
+Date.prototype.dateDifference = function(){
+	var currentDate = new Date();
+	var toDate = this; console.log(currentDate+'----'+toDate);
+	var timeDiff = Math.abs(toDate.getTime() - currentDate.getTime());
+	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+	return diffDays;
+}
+$(document).ready(function(){
+	var fromDate = new Date("09/07/2015");
+	var result = fromDate.dateDifference();
+	$('.date-result').append(result+' Days left.');
 	$('#str-convertor').click(function(){
         var inputVal = $('#input-box').val();
-        var newValue = inputVal.stringConvertor();
-        $('.result').html(newValue);
+        if(trim(inputVal) != ''){
+        	   var newValue = inputVal.stringConvertor();
+           $('.result').html(newValue);
+        }
     });
 });
 </script>
@@ -39,5 +51,6 @@ $(document).ready(function(){
     <input type="text" name="stringVar" id="input-box"/>
     <input type="button" name="convertor" value="convert" id="str-convertor"/>
     <div class="result"></div>
+    <div class="date-result">Date Difference : </div>
 </body>
 </html>
