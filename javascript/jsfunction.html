@@ -28,7 +28,7 @@ String.prototype.stringConvertor = function(){
 }
 Date.prototype.dateDifference = function(){
 	var currentDate = new Date();
-	var toDate = this; console.log(currentDate+'----'+toDate);
+	var toDate = this;
 	var timeDiff = Math.abs(toDate.getTime() - currentDate.getTime());
 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 	return diffDays;
