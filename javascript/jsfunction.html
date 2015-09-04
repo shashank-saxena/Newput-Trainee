@@ -4,24 +4,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- script src="objects.js"></script-->
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <title>Javscript Objects</title>
 <script>
-	String.prototype.stringConvertor = function(stringVar){
-		alert(parseInt(stringVar, 10));
-		
-	}
-	function myFun(){
-        var inputVal = document.getElementById('input-box') ;
-        alert(inputVal);
+String.prototype.stringConvertor = function(){
+	var alphaObj = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seaven", 8: "eight", 9: "nine"};
+	var ob = this; console.log(ob);
+	var str = new String;
+	for(var val in ob){
+		var localRef = '';
+		if(typeof(ob[val]) != "function"){
+			if((isNaN(parseInt(ob[val])) == true)){
+	            localRef = ob[val];
+	        }else{
+	            var vl = ob[val]; console.log(alphaObj[vl]);
+	            var newString = alphaObj[vl];
+	            localRef = newString;
+	        }
+		}
+		str += localRef; 
     }
-	    
-    //inputVal.stringConvertor(inputVal);
-    //element.addEventListener("click", myFunction);
-    
+	return str;
+}	    
+$(document).ready(function(){  
+	$('#str-convertor').click(function(){
+        var inputVal = $('#input-box').val();
+        var newValue = inputVal.stringConvertor();
+        $('.result').html(newValue);
+    });
+});
 </script>
 </head>
 <body>
-    <input type="text" name="stringVar" id="inputBox"/>
-    <input type="button" name="convertor" value="convert" id="strConvertor"/>
+    <input type="text" name="stringVar" id="input-box"/>
+    <input type="button" name="convertor" value="convert" id="str-convertor"/>
+    <div class="result"></div>
 </body>
 </html>
