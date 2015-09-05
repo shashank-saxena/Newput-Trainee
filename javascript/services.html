@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,9 +7,10 @@
 <!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/-->
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
-<script src="js/myscripts.js"></script>
-<script src="js/ajaxscript.js"></script>
+<script src="js/my-scripts.js"></script>
+<script src="js/ajax-script.js"></script>
 <script src="js/mustache.js"></script>
+<!--script src="js/mustache-template.js"></script-->
 <title>Sign up</title>
 <script>
 $(document).ready(function(){
@@ -34,25 +35,25 @@ $(document).ready(function(){
 			
 		</div>
 	</div>
-    <script type="text/html" id="sample_template">
-        {{#Books}}
-          <div class='columns'>
-                <div class='cell-wrapper'>
-                    <div class='ribbon'>{{isbn}}</div>
-                    <div class='img'><img src='{{Image}}'/></div>
-                    <div class='detail'>
-                        <div class='short-detail'>
-                            <div class='title'>{{Title}}</div>
-                            <div class='author'>by Author</div>
-                        </div>
-                        <div class='description'>{{Description}}...</div>
-                    </div>
-                    <div class='link'><a href='#'>Learn More -></a></div>
+	<script type="text/html" id="sample_template">
+    {{#Books}}
+        <div class='columns'>
+            <div class='cell-wrapper'>
+                <div class='ribbon'>{{isbn}}</div>
+                <div class='img'><img src='{{Image}}'/></div>
+                <div class='detail'>
+                    <div class='short-detail'>
+                    <div class='title'>{{Title}}</div>
+                    <div class='author'>by Author</div>
                 </div>
+                <div class='description'>{{Description}}...</div>
             </div>
-        {{/Books}}
-        <div class="clear"></div>
-    </script>
+            <div class='link'><a href='#'>Learn More -></a></div>
+            </div>
+        </div>
+    {{/Books}}
+    <div class="clear"></div>
+</script>
     <div class="wrapper">
        <footer>
             <ul class="footer-links">

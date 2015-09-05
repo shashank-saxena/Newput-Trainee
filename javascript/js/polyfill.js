@@ -1,12 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- script src="objects.js"></script-->
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<title>Javscript Objects</title>
-<script>
+/* extend string method */
 String.prototype.stringConvertor = function(){
 	var alphaObj = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seaven", 8: "eight", 9: "nine"};
 	var ob = this;
@@ -26,6 +18,8 @@ String.prototype.stringConvertor = function(){
     }
 	return str;
 }
+/* extend string method end */
+/* extend date method */
 Date.prototype.dateDifference = function(){
 	var currentDate = new Date();
 	var toDate = this;
@@ -33,6 +27,8 @@ Date.prototype.dateDifference = function(){
 	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 	return diffDays;
 }
+/* extend date method end */
+/* on document ready event */
 $(document).ready(function(){
 	var fromDate = new Date("09/07/2015");
 	var result = fromDate.dateDifference();
@@ -45,12 +41,4 @@ $(document).ready(function(){
         }
     });
 });
-</script>
-</head>
-<body>
-    <input type="text" name="stringVar" id="input-box"/>
-    <input type="button" name="convertor" value="convert" id="str-convertor"/>
-    <div class="result"></div>
-    <div class="date-result">Date Difference : </div>
-</body>
-</html>
+/* on document ready event end */

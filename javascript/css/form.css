@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper header h1 {
+  margin: 0;
+}
+input {
+  width: 100%;
+}
+.require {
+  color: #ff0000;
+}
+label {
+  font-size: 12px;
+}
+.submit-btn {
+  clear: both;
+  margin-bottom: 10px;
+}
+.submit-btn input {
+  width: 11%;
+  height: 37px;
+}
+.wrapper {
+  border-bottom: 2px solid #d3d3d3;
+  background-color: #e3e5e7;
+  clear: both;
+}
+.wrapper .navigation {
+  margin: 16px auto;
+  width: 50%;
+}
+.wrapper .footer-links {
+  margin: 0 auto;
+  width: 43%;
+}
+ul {
+  list-style-type: none;
+}
+ul li {
+  cursor: pointer;
+  display: inline;
+  padding: 10px;
+}
+ul li.active {
+  background-color: #3b86c2;
+  border-radius: 9px;
+}
+.social-links {
+  margin: 0 auto;
+  width: 30%;
+}
+.copyright {
+  font-size: 15px;
+  margin: 0 auto;
+  width: 23%;
+}
+.col {
+  margin: 20px;
+  width: 50%;
+}
+footer {
+  padding: 12px;
+}
+.clear {
+  clear: both;
+}
+form {
+  margin: 0 auto;
+  width: 71%;
+}
+.container h3 {
+  margin: 11px auto;
+  width: 48%;
+}
+.error {
+  color: #ff0000;
+}
