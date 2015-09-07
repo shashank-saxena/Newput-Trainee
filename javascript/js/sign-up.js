@@ -50,27 +50,24 @@ $(document).ready(function(){
 		},
 		errorElement: 'span',
 		errorPlacement: function(error, element) {
-			var el = $(element).parents('.form-group');
-			error.insertAfter(el);
+			//var el = $(element).parents('.form-group');
+			error.insertAfter(element);
 		},
 		onfocusout: function(element){
 			$('#validate-form').validate().element(element);
 		}
 	});
-//	$('.mandatory').focusout(function() {
-//		$('#validate-form').validate().element(this);
-//    });
 });
 /* add custom validation for name */
 jQuery.validator.addMethod("validText", function(value, element) {
 	return this.optional(element) || /^[a-zA-Z ]+$/.test(value);
-}, jQuery.validator.format("Please enter valid name"));
+},"Please enter valid name");
 /* name validation end */
 
 /* length validation */
 jQuery.validator.addMethod("length", function(value, element) {
 	return this.optional(element) || value.length > 2;
-}, jQuery.validator.format("Name should be 2 characters long."));
+},"Name should be 2 characters long.");
 /* length validation end */
 
 /* create a new class for adding length validation*/

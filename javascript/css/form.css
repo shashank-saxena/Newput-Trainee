@@ -17,6 +17,7 @@ label {
 .submit-btn {
   clear: both;
   margin-bottom: 10px;
+  margin-left: 21px;
 }
 .submit-btn input {
   width: 11%;
