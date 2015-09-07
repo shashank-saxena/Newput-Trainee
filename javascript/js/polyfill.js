@@ -28,6 +28,13 @@ Date.prototype.dateDifference = function(){
 	return diffDays;
 }
 /* extend date method end */
+
+/* checking value should not be undefined, null , empty*/
+String.prototype.isEmpty = function(){
+	var val = this;
+	return (val === undefined || val == null || val.length <= 0) ? false : true;
+}
+
 /* on document ready event */
 $(document).ready(function(){
 	var fromDate = new Date("09/07/2015");
@@ -35,9 +42,11 @@ $(document).ready(function(){
 	$('.date-result').append(result+' Days left.');
 	$('#str-convertor').click(function(){
         var inputVal = $('#input-box').val();
-        if(trim(inputVal) != ''){
+        if(inputVal.isEmpty()){
         	   var newValue = inputVal.stringConvertor();
            $('.result').html(newValue);
+        }else {
+        	 $('.result').html('Please enter some value in text.');
         }
     });
 });

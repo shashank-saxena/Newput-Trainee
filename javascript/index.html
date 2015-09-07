@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/form.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script src="js/sign-up.js"></script>
 <title>Sign up</title>
@@ -24,29 +26,30 @@
     <div class="container">
 	    <h3>SIGN UP FORM</h3>
 	    <form method="post" id="validate-form" action="" class="row" name="form">
-	        <div class="firstname col">
+	        <div class="firstname form-group col">
 	            <label>required</label><span class="require">*</span>
-	            <input class="len" type="text" name="firstname" placeholder="First Name"/>
+	            <input class="len mandatory form-control" type="text" name="firstname" placeholder="First Name"/>
 	        </div>
-	        <div class="lastname col">
+	     
+	        <div class="lastname form-group col">
 	           <label>required</label><span class="require">*</span>
-               <input class="len" placeholder="Last Name" type="text" name="lastname" ="Last Name"/>
+               <input class="len mandatory form-control" placeholder="Last Name" type="text" name="lastname" ="Last Name"/>
 	        </div>
-	        <div class="email col">
+	        <div class="email col form-group">
 	            <label>required</label><span class="require">*</span>
-	            <input placeholder="Email" type="text" name="email"/>
+	            <input placeholder="Email" type="text" name="email" class="form-control mandatory"/>
 	        </div>
-	        <div class="password col pwd">
+	        <div class="password col pwd form-group">
 	            <label>require</label><span class="require">*</span>
-	            <input placeholder="Password" type="password" name="pwd"/>
+	            <input placeholder="Password" id="pwd" type="password" class="mandatory form-control" name="pwd"/>
 	        </div>
-	        <div class="confirm-password cpwd col">
+	        <div class="confirm-password cpwd col form-group">
 	           <label>require</label><span class="require">*</span>
-               <input placeholder ="Re-enter Password" type="password" name="cpwd"/>
+               <input placeholder ="Re-enter Password" class="mandatory form-control" type="password" name="cpwd"/>
 	        </div>
-	        <div class="city col">
+	        <div class="city col form-group">
 	            <label>required</label><span class="require">*</span>
-	            <select name="city">
+	            <select name="city" class="mandatory form-control">
 	                <option value="">--Select city--</option>
 	                <option value="indore">Indore</option>
 	                <option value="bhopal">Bhopal</option>

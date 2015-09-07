@@ -3,11 +3,11 @@ $(document).ready(function(){
 		rules: {
 			firstname: {
 				 required: true,
-				 name: true
+				 validText: true
 			},
 			lastname: {
 				required: true,
-				name: true
+				validText: true
 			},
 			email: {
 				required: true,
@@ -27,12 +27,12 @@ $(document).ready(function(){
 			firstname: {
 				required: 'First name is required.',
 				minlength: 'First name should be atleast 2 characters long.',
-				name: 'please enter valid first name.'
+				validText: 'please enter valid first name.'
 			},
 			lastname: {
 				required: 'Last name is requierd.',
 				minlength: 'Last name should be atleast 2 characters long.',
-				name : 'Please enter valid last name.'
+				validText : 'Please enter valid last name.'
 			},
 			email: {
 				required: 'Email feild is required.',
@@ -47,11 +47,22 @@ $(document).ready(function(){
 				equalTo: 'Please enter same password as above.'
 			},
 			city: "City is required."
+		},
+		errorElement: 'span',
+		errorPlacement: function(error, element) {
+			var el = $(element).parents('.form-group');
+			error.insertAfter(el);
+		},
+		onfocusout: function(element){
+			$('#validate-form').validate().element(element);
 		}
-	})
+	});
+//	$('.mandatory').focusout(function() {
+//		$('#validate-form').validate().element(this);
+//    });
 });
 /* add custom validation for name */
-jQuery.validator.addMethod("name", function(value, element) {
+jQuery.validator.addMethod("validText", function(value, element) {
 	return this.optional(element) || /^[a-zA-Z ]+$/.test(value);
 }, jQuery.validator.format("Please enter valid name"));
 /* name validation end */
