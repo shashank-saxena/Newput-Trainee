@@ -35,6 +35,49 @@ String.prototype.isEmpty = function(){
 	return (val === undefined || val == null || val.length <= 0) ? false : true;
 }
 
+/* js class */
+var PageHandler = function(elem, renderId){
+	this.elem = elem;
+	this.renderId = renderId;
+	var link = '' ;
+	this.book = function(){
+		$('.'+this.elem).click(function(){
+			var status = $(this).attr('data-atribute');
+			if(status == 'php'){
+				link = 'http://it-ebooks-api.info/v1/search/php%20mysql';
+			}else if(status == 'java'){
+				link = 'http://it-ebooks-api.info/v1/search/java';
+			}else{
+				link = 'http://it-ebooks-api.info/v1/search/mysql';
+			}
+			$.ajax({
+				url: link,
+				method : 'GET'
+			}).success(function(data){
+				for(book in data.Books){
+					var desc = data.Books[book].Description;
+					data.Books[book].Description = desc.substr(0,50);
+				}
+				_renderTemplate(data);
+			}).error(function(){
+				console.log('error');
+			});
+		});
+	}
+	var _renderTemplate = function(data){
+		$.ajax({
+			  url: 'templates/mustache-template.js',
+			  method : 'GET',
+			  dataType: 'html'
+			}).success(function(template){
+				Mustache.parse(template); 
+				var rendered = Mustache.render(template, data);
+				$("#"+renderId).html(rendered);   
+		});
+	}
+}
+/*end of classes*/
+
 /* on document ready event */
 $(document).ready(function(){
 	var fromDate = new Date("09/07/2015");
@@ -49,5 +92,12 @@ $(document).ready(function(){
         	 $('.result').html('Please enter some value in text.');
         }
     });
+	
+	/* calling of class */
+	var clickLink = new PageHandler('book-data', 'unique');
+	console.log(clickLink);
+	clickLink.book();
+	/* end of calling */
+	
 });
 /* on document ready event end */

@@ -17,6 +17,8 @@ h3 {
   text-align: center;
 }
 h1 {
+  float: left;
+  padding: 15px;
   margin: 0;
 }
 input {
@@ -39,21 +41,32 @@ label {
   border-bottom: 2px solid #d3d3d3;
   background-color: #e3e5e7;
   clear: both;
+  height: 75px;
 }
 .wrapper .navigation {
   margin: 16px auto;
+  padding: 10px;
   width: 50%;
 }
-.wrapper .footer-links {
+.footer-wrapper .footer-links {
   margin: 0 auto;
+  padding: 15px;
   width: 43%;
 }
 ul {
   list-style-type: none;
 }
-ul li {
+header{
+  overflow: hidden;
+}
+header ul li {
   cursor: pointer;
-  display: inline;
+  display:inline;
+  padding: 10px;
+}
+footer ul li {
+  cursor: pointer;
+  display:inline;
   padding: 10px;
 }
 ul li.active {
@@ -135,9 +148,34 @@ ul li.active {
   height: 244px;
   overflow: hidden;
 }
-footer {
-  padding: 12px;
-}
 .clear {
   clear: both;
+}
+.container{
+  margin: 10px;
+  width: 100%;
+}
+.container .aside{
+  float:left;
+  width:15%;
+}
+.container #unique{
+  border-left: 1px solid grey;
+  overflow: hidden;
+  width:80%;
+}
+.book-list{
+  margin: 18px auto;
+  width: 50%;
+}
+.aside li {
+    padding: 9px;
+}
+.book-list li a{
+  cursor: pointer;
+}
+.footer-wrapper{
+  background-color: #e3e5e7;
+  clear: both;
+  height: auto;
 }
