@@ -19,14 +19,14 @@
 function callAjaxContent(page){
 	var url = page+".html";
 	$.ajax({
-		  url: url,
-		  method : 'GET',
-		  dataType: 'html'
-		}).success(function(response, status){
-			renderPageContent();
-		}).error(function(){
-			console.log('error');
-		});
+		url: url,
+		method : 'GET',
+		dataType: 'html'
+	}).success(function(response, status){
+		renderPageContent();
+	}).error(function(){
+		console.log('error');
+	});
 }
 /* native js function */
 function fetchBooksDetailsJs(){
@@ -63,16 +63,16 @@ function renderPageContent(){
 	$.ajax({
 		  url: url,
 		  method : 'GET'
-		}).success(function(data){
-			for(book in data.Books){
-				var desc = data.Books[book].Description;
-				data.Books[book].Description = desc.substr(0,50);
-			}
-			var template = $("#sample_template").html();
-			Mustache.parse(template); 
-			var html = Mustache.render(template, data);
-			$("#unique").html(html);    
-		}).error(function(){
-			alert('error');
-		});
+	}).success(function(data){
+		for(book in data.Books){
+			var desc = data.Books[book].Description;
+			data.Books[book].Description = desc.substr(0,50);
+		}
+		var template = $("#sample_template").html();
+		Mustache.parse(template); 
+		var html = Mustache.render(template, data);
+		$("#unique").html(html);    
+	}).error(function(){
+		alert('error');
+	});
 }

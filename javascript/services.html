@@ -15,54 +15,35 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="wrapper">
-        <header>
-            <h1>Form Example</h1>
-            <ul class="navigation">
-                <li data-attribute="index">Sign Up Home</li>
-                <li data-attribute="about">About Us</li>
-                <li class="active" data-attribute="services">Services</li>
-                <li data-attribute="contact">Contact Us</li>
-            </ul>
-        </header>
-    </div>
-    <div class="container-class">
-		  <div class="rows" id="unique"></div>
-		  <script type="html/text" id="sample_template">
-		    {{#Books}}
-			    <div class='columns'>
-			      <div class='cell-wrapper'>
-			        <div class='ribbon'>{{isbn}}</div>
-			        <div class='img'><img src='{{Image}}'/></div>
-			        <div class='detail'>
-			          <div class='short-detail'>
-			          <div class='title'>{{Title}}</div>
-			          <div class='author'>by Author</div>
-			        </div>
-			        <div class='description'>{{Description}}...</div>
-			      </div>
-			      <div class='link'><a href='#'>Learn More -></a></div>
-			      </div>
-			    </div>
-		    {{/Books}}
-		  <div class="clear"></div>
-		  </script>
-	  </div>
-    <div class="wrapper">
-       <footer>
-            <ul class="footer-links">
-                <li>Sign Up Home</li>
-                <li>About Us</li>
-                <li>Services</li>
-                <li>Contact Us</li>
-            </ul>
-            <ul class="social-links">
-                    <li><img src="images/facebook-icon.png"/></li>
-                    <li><img src="images/pinterest.png"/></li>
-                    <li><img src="images/twitter-icon.png"/></li>
-            </ul>
-            <div class="copyright">@Copyright:2015</div>
-        </footer>
-    </div>
+	<div class="wrapper">
+	  <header>
+		  <h1>Form Example</h1>
+		    <ul class="navigation">
+			    <li data-attribute="index">Sign Up Home</li>
+			    <li data-attribute="about">About Us</li>
+			    <li class="active" data-attribute="services">Services</li>
+			    <li data-attribute="contact">Contact Us</li>
+		    </ul>
+	  </header>
+	</div>
+	<div class="container-class">
+	 <div class="rows" id="unique"></div>
+	</div>
+	<div class="wrapper">
+		<footer>
+	    <ul class="footer-links">
+	      <li>Sign Up Home</li>
+	      <li>About Us</li>
+	      <li>Services</li>
+	      <li>Contact Us</li>
+	    </ul>
+      <ul class="social-links">
+	      <li><img src="images/facebook-icon.png"/></li>
+	      <li><img src="images/pinterest.png"/></li>
+	      <li><img src="images/twitter-icon.png"/></li>
+      </ul>
+		  <div class="copyright">@Copyright:2015</div>
+		 </footer>
+	</div>
 </body>
 </html>
