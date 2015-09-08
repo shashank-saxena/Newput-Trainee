@@ -24,7 +24,6 @@ function callAjaxContent(page){
 		  dataType: 'html'
 		}).success(function(response, status){
 			renderPageContent();
-			$('.container').html(response);
 		}).error(function(){
 			console.log('error');
 		});
@@ -58,10 +57,9 @@ function fetchBooksDetailsJs(){
 	}
 }
 /* native js function end */
-
 function renderPageContent(){
 	var url = "http://it-ebooks-api.info/v1/search/php%20mysql";
-	var data = '';
+	data = '';
 	$.ajax({
 		  url: url,
 		  method : 'GET'

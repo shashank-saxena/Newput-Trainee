@@ -1,4 +1,4 @@
-<script type="text/html" id="sample_template">
+
 	{{#Books}}
 		<div class='columns'>
 			<div class='cell-wrapper'>
@@ -16,4 +16,3 @@
 		</div>
 	{{/Books}}
 	<div class="clear"></div>
-</script>

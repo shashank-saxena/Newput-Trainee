@@ -3,15 +3,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/geo.css">
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<script src="js/mustache.js"></script>
-<script src="js/ajax-script.js"></script>
-<title>Sign up</title>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="js/jquery-geo-complete.js"></script>
+<title>GeoComplete Library</title>
 <script>
 $(document).ready(function(){
-	renderPageContent();
-});
+	$(".map-input").geocomplete({
+	  map: ".map-canvas",
+	  details: ".details ",
+	  markerOptions: {
+	    draggable: true
+	  }
+	});
+	$(".map-input").bind("geocode:dragged", function(event, latLng){
+	  $("input[name=lat]").val(latLng.lat());
+	  $("input[name=lng]").val(latLng.lng());
+	});
+	$("#find").click(function(){
+	  $(".map-input").trigger("geocode");
+	}).click();
+})
 </script>
 </head>
 <body>
@@ -27,28 +40,22 @@ $(document).ready(function(){
         </header>
     </div>
     <div class="container-class">
-		  <div class="rows" id="unique"></div>
-		  <script type="html/text" id="sample_template">
-		    {{#Books}}
-			    <div class='columns'>
-			      <div class='cell-wrapper'>
-			        <div class='ribbon'>{{isbn}}</div>
-			        <div class='img'><img src='{{Image}}'/></div>
-			        <div class='detail'>
-			          <div class='short-detail'>
-			          <div class='title'>{{Title}}</div>
-			          <div class='author'>by Author</div>
-			        </div>
-			        <div class='description'>{{Description}}...</div>
-			      </div>
-			      <div class='link'><a href='#'>Learn More -></a></div>
-			      </div>
-			    </div>
-		    {{/Books}}
-		  <div class="clear"></div>
-		  </script>
-	  </div>
-    <div class="wrapper">
+        <form class="form-group">
+            <input class="form-control map-input" type="text" size="90" placeholder="Type in an address" id="geocomplete" autocomplete="off">
+            <input class="form-control" type="button" value="find" id="find">
+        </form>
+        <div class ="map-canvas"></div>
+        <div class="details">
+					  <label>Latitude</label>
+						<input type="text" value="" name="lat">
+						<label>Longitude</label>
+						<input type="text" value="" name="lng">
+						<label>Formatted Address</label>
+						<input type="text" value="" name="formatted_address">
+				</div>
+    </div>
+    
+    <div class ="wrapper">
        <footer>
             <ul class="footer-links">
                 <li>Sign Up Home</li>
