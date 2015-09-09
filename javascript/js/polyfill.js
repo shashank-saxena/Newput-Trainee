@@ -36,12 +36,20 @@ String.prototype.isEmpty = function(){
 }
 
 /* js class */
-var PageHandler = function(elem, renderId){
-	this.elem = elem;
-	this.renderId = renderId;
-	var link = '' ;
-	this.book = function(){
-		$('.'+this.elem).click(function(){
+var PageHandler = function(){
+	booksById = '';
+	var _elem = '';
+	var _renderId = '';
+	var _link = '' ;
+	var _className = '';
+	var _id = '';
+	var _linkId = '';
+	var desc = '';
+	var _rendered = '';
+	this.book = function(elem, renderId){
+		_elem = elem;
+		_renderId = renderId;
+		$('.'+_elem).click(function(){
 			var status = $(this).attr('data-atribute');
 			if(status == 'php'){
 				link = 'http://it-ebooks-api.info/v1/search/php%20mysql';
@@ -55,49 +63,63 @@ var PageHandler = function(elem, renderId){
 				method : 'GET'
 			}).success(function(data){
 				for(book in data.Books){
-					var desc = data.Books[book].Description;
-					data.Books[book].Description = desc.substr(0,50);
+					_desc = data.Books[book].Description;
+					data.Books[book].shortDescription = _desc.substr(0,50);
+					_id = 'key-'+book;
+					data.Books[book].id = _id;
 				}
-				_renderTemplate(data);
+				 booksById = data;
+				_renderTemplate(data, _renderId, 'mustache-template.js');
 			}).error(function(){
 				console.log('error');
 			});
 		});
 	}
-	var _renderTemplate = function(data){
+	var _renderTemplate = function(data, renderId, templateName){
 		$.ajax({
-			  url: 'templates/mustache-template.js',
+			  url: 'templates/'+templateName,
 			  method : 'GET',
 			  dataType: 'html'
 			}).success(function(template){
 				Mustache.parse(template); 
-				var rendered = Mustache.render(template, data);
-				$("#"+renderId).html(rendered);   
+				_rendered = Mustache.render(template, data);
+				$("#"+renderId).html(_rendered);   
 		});
+	}
+	
+	this.defaultStatus = function(elem, className, renderId){
+		_elem = elem;
+		_className = className;
+		if($('.'+_elem).hasClass('active')){
+			$('.'+_className).trigger('click');
+		}
+	}
+	
+	this.activeLink = function(linkId, className){
+		_linkId = linkId;
+		_className = className;
+		$('.'+_linkId).click(function(event){
+			var _tag = event.currentTarget.nodeName.toLowerCase();
+			$(_tag+'.'+_linkId).each(function(){
+				if($(this).hasClass(className)) {
+					$(this).removeClass(className)
+				}
+			});
+			$(this).addClass(className);
+		});
+	}
+	
+	this.showPopUp = function(event, container){
+		var _bookId = event;
+		_arr = _bookId.split('-');
+		_bookId = _arr['2'];
+		_renderId = container;
+		_renderTemplate(booksById.Books[_bookId], _renderId, 'article-template.js');
+		
+	}
+	
+	this.emptyPopup = function(container){
+		$('#'+container).html('');
 	}
 }
 /*end of classes*/
-
-/* on document ready event */
-$(document).ready(function(){
-	var fromDate = new Date("09/07/2015");
-	var result = fromDate.dateDifference();
-	$('.date-result').append(result+' Days left.');
-	$('#str-convertor').click(function(){
-        var inputVal = $('#input-box').val();
-        if(inputVal.isEmpty()){
-        	   var newValue = inputVal.stringConvertor();
-           $('.result').html(newValue);
-        }else {
-        	 $('.result').html('Please enter some value in text.');
-        }
-    });
-	
-	/* calling of class */
-	var clickLink = new PageHandler('book-data', 'unique');
-	console.log(clickLink);
-	clickLink.book();
-	/* end of calling */
-	
-});
-/* on document ready event end */
