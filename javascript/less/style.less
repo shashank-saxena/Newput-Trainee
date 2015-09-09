@@ -1,0 +1,305 @@
+@import "variable";
+body {
+  margin: 0;
+  padding: 0;
+}
+.message {
+  color:@warning;
+  display: none;
+}
+#err-msg {
+  color:@warning;
+  height: 20px;
+  display: none;
+  width: 200px;  
+}
+h3 {
+  color:@heading;
+  text-align:center;
+}
+h1 {
+  float: left;
+  padding: 15px;
+  margin: 0;
+}
+header{
+  overflow: hidden;
+  ul{
+    li{
+      cursor: pointer;
+      display:inline;
+      padding: 10px;
+    }
+  }
+}
+input {
+  width:100%;
+}
+.require {
+  color:@warning;
+}
+label {
+  font-size:12px;
+}
+.submit-btn {
+  clear:both;
+  
+  input {
+    width:10%;
+    height:37px;
+  }
+}
+.wrapper {
+  border-bottom: 2px solid #d3d3d3;
+  background-color: #e3e5e7;
+  clear: both;
+  height: 75px;
+    
+  .navigation {
+    float: right;
+    padding: 10px;
+    width: 25%;
+  }
+}
+.footer-wrapper {
+  ul {
+    list-style-type:none;
+    
+    li {
+      cursor:pointer;
+      display:inline;
+      padding:10px;    
+    }
+    
+    &.active {
+      background-color:@heading;
+      border-radius: 9px;
+    }
+  }
+}
+.social-links {
+  margin:0 auto;
+  width:30%;
+}
+.copyright {
+  font-size: 15px;
+  margin: 0 auto;
+  width: 23%;
+}
+.err {
+  display:block;
+}
+.cell-wrapper {
+  height: 442px;
+  position:relative;
+  
+  span {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    width: 100%;
+  }
+  
+  .author {
+    font-weight: 300;
+  }
+  
+  img {
+    border-radius: 9px 9px 0 0;
+    width:100%;
+  }
+  
+  .detail {
+    border: 2px solid #eee;
+    border-radius: 5px;
+    padding: 0;
+      
+    .short-detail {
+      height: 73px;
+      padding: 15px;
+    }
+  }
+  
+  .description {
+    font-weight: 300;
+    padding:5px;
+  }
+  
+  .link {
+    border: 1px solid #eee;
+    text-align: center;
+    background-color:#F6F6F6;
+    padding: 9px;
+    border-radius: 0 0 9px 9px;
+  }
+}
+.columns {
+  float: left;
+  padding: 11px;
+  width: 20%;
+}
+.col {
+  float:left;
+  width:50%;
+}
+.ribbon {
+  background-color: #4FF;
+  border: 1px solid grey;
+  border-radius: 8px 0px 0px 8px;
+  position: absolute;
+  right: 3px;
+  top: 28px;
+  width: 55%;
+}
+.container-class {
+  width:80%;
+  margin: 36px auto;
+}
+.img {
+  border: 2px solid #eee;
+  border-radius: 9px 9px 0 0;
+  height: 235px;
+  overflow: hidden;
+}
+footer {
+  padding: 12px;
+}
+.clear {
+  clear:both;
+}
+.container {
+  margin: 10px;
+  width: 100%;
+  
+  .aside {
+    float:left;
+    width:15%;
+  }
+  
+  #unique {
+    border-left: 1px solid grey;
+    overflow: hidden;
+    width:80%;
+  }
+}
+.book-list {
+  width: 50%;
+}
+.book-list {
+  list-style-type: none;
+  li {
+    a {
+      color: black;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+  
+  .book-data {
+     background-color: #e3e5e7;
+     color: black;
+     margin: 5px;
+     padding: 10px;
+     text-align: center;
+    
+   &.active {
+     background-color: #337ab7;
+     color: white;
+    }
+  }
+}
+.footer-wrapper {
+  background-color: #e3e5e7;
+  clear: both;
+  height: auto;
+  
+  .footer-links {
+     margin: 0 auto;
+     padding: 15px;
+     width: 43%;
+  }
+}
+.short-detail {
+  .title {
+    font-weight: 600;
+  }
+}
+#modal-container {
+  title {
+    width: 100%;
+    }
+    
+  header {
+    color: #fff;
+    overflow: hidden;
+    padding: 19px;
+    text-align: center;
+  }
+}
+section{
+  color : #fff;
+  .book-image {
+    float: left;
+    width: 30%;
+  }
+  
+  .content {
+    color: #fff;
+    overflow: hidden;
+    padding: 15px;
+    width:70%;
+  }
+  
+  .short-details{
+    overflow: hidden;
+    padding: 0 15px;
+  }
+}
+.modal-dialog{
+    background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+    bottom: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    
+    .dialog-content{
+      background: #000000 none repeat scroll 0 0;
+      border-radius: 10px;
+      height: 340px;
+      margin: 2% auto;
+      padding: 5px 20px 13px;
+      width: 50%;
+    }
+}
+.close {
+    background: #606061 none repeat scroll 0 0;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px #000;
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 25px;
+    padding: 0;
+    position: absolute;
+    right: 297px;
+    text-align: center;
+    text-decoration: none;
+    top: 11px;
+    width: 22px;
+}
+.close {
+  &:hover {
+    background: #00d9ff;
+  }
+}
+.short-detail {
+  .title {
+    a {
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #000;
+    }
+  }
+}
+
+    
