@@ -1,76 +1,116 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="js/mustache.js"></script>
-<script src="js/polyfill.js"></script>
+<script src="js/page-events.js"></script>
 <title>Services</title>
 <script>
 $(document).ready(function(){
-  var clickLink = new PageHandler();
-  clickLink.book('book-data', 'unique', 'loading-image');
-  clickLink.activeLink('book-data', 'active');
-  clickLink.defaultStatus('book-data', 'active', 'unique');
+	var bookObj = new BookComponent();
+  //var status = 0;
+	bookObj.init('cell-template', 'modal-template', 'book-data');// Initialize the values
+  bookObj.bookSwitching();
+});
+  //var bookObj = new BookComponent();
+  //bookObj.init('book-data');// Initialize the values
+  
+  /* clickLink.book('book-data', 'unique', 'loading-image', 'active');
+  //clickLink.activeLink('book-data', 'active');
+  clickLink.defaultStatus('book-data', 'active', 'unique', 'php');
   $(document).on('click', '.more-detail', function(event){
-	  clickLink.showPopUp(event.target.id, 'modal-container');
+    clickLink.showPopUp(event.target.id, 'modal-container');
   });
   $(document).on('click', '.close', function(event){
-	  clickLink.emptyPopup('modal-container');
-  });
-  $(window).scroll(function() {
-     if($(window).scrollTop() + $(window).height() == $(document).height()) {
-    	  count++;
-    	  $('.book-data').trigger('click');
-     }
-  });
-});
+    clickLink.emptyPopup('modal-container');
+  }); */
+  
 </script>
 </head>
 <body>
-	<div class="wrapper">
-		<header>
-		  <h1>Form Example</h1>
-		   <ul class="navigation">
-		     <li data-attribute="index"><i class="fa fa-home"></i>Home</li>
-		     <li data-attribute="about"><i class="fa fa-clone"></i>About Us</li>
-		     <li class="active" data-attribute="services">Services</li>
-		     <li data-attribute="contact"><i class="fa fa-mobile"></i>Contact Us</li>
-		   </ul>
-		</header>
-	</div>
-	<div class="container">
-		<div class="aside">
-		  <ul class="book-list">
-		    <li class="book-data active" data-atribute="php"><a href="#">Php</a></li>
-		    <li class="book-data" data-atribute="java"><a href="#">Java</a></li>
-		    <li class="book-data" data-atribute="my-sql"><a href="#">Mysql</a></li>
-		  </ul>
-		</div>
-		<div class="rows" id="unique"></div>
-	</div>
-	<div id="modal-container">
-	</div>
-	<div class="loading-image"><img src="images/ajax-loader.gif"/></div>
-	<div class="footer-wrapper">
-	  <footer>
-	    <ul class="footer-links">
-	      <li>Sign Up Home</li>
-	      <li>About Us</li>
-	      <li>Services</li>
-	      <li>Contact Us</li>
-	    </ul>
-	    <ul class="social-links">
-	      <li><img src="images/facebook-icon.png"/></li>
-	      <li><img src="images/pinterest.png"/></li>
-	      <li><img src="images/twitter-icon.png"/></li>
-	    </ul>
-	    <div class="copyright">@Copyright:2015</div>
-	   </footer>
-	</div>
-	
+  <div class="wrapper">
+    <header>
+      <h1>Form Example</h1>
+       <ul class="navigation">
+         <li data-attribute="index"><i class="fa fa-home"></i>Home</li>
+         <li data-attribute="about"><i class="fa fa-clone"></i>About Us</li>
+         <li class="active" data-attribute="services">Services</li>
+         <li data-attribute="contact"><i class="fa fa-mobile"></i>Contact Us</li>
+       </ul>
+    </header>
+  </div>
+  <div class="container">
+    <div class="aside">
+      <ul class="book-list">
+        <li class="book-data active" data-atribute="php"><a href="#">Php</a></li>
+        <li class="book-data" data-atribute="javas"><a href="#">Java</a></li>
+        <li class="book-data" data-atribute="mysql"><a href="#">Mysql</a></li>
+      </ul>
+    </div>
+    <div class="rows cell-template" id="unique"></div>
+    <script id="cell-template" type="template/">
+      {{#Books}}
+      <div class='columns'>
+        <div class='cell-wrapper'>
+          <div class='ribbon'>{{isbn}}</div>
+          <div class='img'>
+            <img src='{{Image}}'/>
+            <div class='short-detail'>
+              <div class='title'><a class="more-detail" id="title-{{ID}}" href="#{{ID}}">{{Title}}</a></div>
+              <div class='author'>by Author</div>
+              <div class='description'>{{shortDescription}}...</div>
+            </div>
+          </div>
+            <div class='link'>
+              <a href='#key-{{ID}}' class="more-detail" id="key-{{ID}}">Learn More -></a>
+            </div>
+        </div>
+      </div>
+      {{/Books}}
+      {{^Books}}
+        No More Books are available !!
+      {{/Books}}
+    </script>
+  </div>
+  <div id="modal-container" class="modal-template">
+  </div>
+  <script id="modal-template" type="template/">
+    <div id="{{ID}}" class="modal-dialog">
+      <a href="#close" title="Close" class="close">X</a>
+      <div class="dialog-content">
+        <header class="title"><h3>{{Title}}</h3></header>
+        <section>
+          <div class="book-image"><img src="{{Image}}"/></div>
+          <div class="content">{{Description}}
+            <div class="short-details">
+              <div>ID: {{ID}}</div>
+              <div>ISBN : {{isbn}}</div>
+            </div>
+          </div>
+        </section>
+        <footer class="footer"><h3>footer @2015</h3></footer>
+      </div>
+    </div>
+  </script>
+  <div class="footer-wrapper">
+    <footer>
+      <ul class="footer-links">
+        <li>Sign Up Home</li>
+        <li>About Us</li>
+        <li>Services</li>
+        <li>Contact Us</li>
+      </ul>
+      <ul class="social-links">
+        <li><img src="images/facebook-icon.png"/></li>
+        <li><img src="images/pinterest.png"/></li>
+        <li><img src="images/twitter-icon.png"/></li>
+      </ul>
+      <div class="copyright">@Copyright:2015</div>
+     </footer>
+  </div>
+  
 </body>
 </html>

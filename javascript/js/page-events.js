@@ -1,111 +1,131 @@
-/* js class */
-var PageHandler = function(){
-	booksById = '';
-	var _elem = '';
-	var _renderId = '';
-	var _link = '' ;
-	var _className = '';
-	var _id = '';
-	var _linkId = '';
-	var desc = '';
-	var _rendered = '';
-	count = 1;
-	this.book = function(elem, renderId, loadingImage, className){
-		var status = '';
-		var link = '';
-		$('.'+elem).click(function(){
-			/* set active status to navigation */
-			$('.'+elem).removeClass(className);
-			$(this).addClass(className);
-			/* set active status to navigation */
-			var status = $(this).attr('data-atribute');
-			if(status == 'php'){
-				link = 'http://it-ebooks-api.info/v1/search/php/page/'+count;
-			}else if(status == 'java'){
-				link = 'http://it-ebooks-api.info/v1/search/java/page/'+count;
-			}else{
-				link = 'http://it-ebooks-api.info/v1/search/mysql/page/'+count;
+ /*js class */
+var BookComponent = function(){
+	var activeClassName = '';
+	var cellTemplateData = '';
+	var modalTemplateData = '';
+	var pageCount = 1;
+	var whichBook = '';
+	var cellTemplateId = '';
+	var modalTemplateId = '';
+	var booksById = '';
+	var scrollStatus = 'false';
+	var bookApiObj = {php: "http://it-ebooks-api.info/v1/search/php/page/", javas: "http://it-ebooks-api.info/v1/search/java/page/", mysql: "http://it-ebooks-api.info/v1/search/mysql/page/"};
+	this.init = function(cellTemplateClass, modalTemplateClass, className){
+		cellTemplateData = _parseTemplate(cellTemplateClass);
+		modalTemplateData = _parseTemplate(modalTemplateClass);
+		activeClassName = className ;
+		if($('.'+activeClassName).hasClass('active')){
+			whichBook = $('.'+activeClassName).attr('data-atribute');
+		}
+		cellTemplateId =  $('.'+cellTemplateClass).attr('id');
+		modalTemplateId =  $('.'+modalTemplateClass).attr('id');
+
+		/* define custom events */
+		$('#'+cellTemplateId).on('emptyCheck', function(){
+			alert('Data has been successfully loaded!!');
+		});
+
+		$('.active').on('loadMoreData', function(){
+			var parameter = $(this).attr('data-atribute');
+			var url = _determineApiUrl(parameter, bookApiObj);
+			_loadData(url, cellTemplateData, cellTemplateId, scrollStatus);
+		})
+
+		$(document).on('click', '.more-detail', function(event){
+			//console.log(event.target.id);
+    		_showPopUp(event.target.id, modalTemplateId, modalTemplateData);
+  		});
+
+  		$(document).on('click', '.close', function(event){
+    		_closePopup(modalTemplateId);
+  		});
+
+  		$(window).scroll(function(){ 
+	        if($(window).scrollTop() + 424 == $(document).height()){
+	         	var url = _determineApiUrl(whichBook, bookApiObj);
+	         	scrollStatus = 'true';
+	         	_loadData(url, cellTemplateData, cellTemplateId, scrollStatus);
+	        }
+  		});
+
+		var url = _determineApiUrl(whichBook, bookApiObj);
+		_loadData(url, cellTemplateData, cellTemplateId, scrollStatus);
+	}
+	var _parseTemplate = function(templateId){
+		var templateVar = $('#'+templateId).html();
+		Mustache.parse(templateVar);
+		return templateVar;
+	}
+	
+	var _determineApiUrl = function(whichBook, bookApiObj){
+		var apiUrl = ''; 
+		if(whichBook == 'php'){
+			apiUrl = bookApiObj.php;
+		}else if(whichBook == 'javas') {
+			apiUrl = bookApiObj.javas;
+		}else {
+			apiUrl = bookApiObj.mysql;
+		}
+		apiUrl = apiUrl+pageCount;
+		return apiUrl;
+	}
+
+	var _showPopUp = function(bookId, modalTemplateId, parseModalData){
+		var arr = bookId.split('-');
+		bookId = 'book-'+arr['2'];
+		for(var index in booksById ){
+			if(booksById.Books.ID == bookId){
+				console.log(booksById.Books.ID);
+				break;
 			}
-			$('.'+loadingImage).show();
-			$.ajax({
-				url: link,
+		}
+		//var modalData = booksById.Books[ID]; console.log(modalData);
+		// var rendered = Mustache.render(parseModalData, modalData);
+		// $('#'+modalTemplateId).html(rendered);
+
+	}
+
+	var _closePopup = function(modalTemplateId){
+		$('#'+modalTemplateId).html('');
+	}
+
+	var _loadData = function(url, parseTemplateData, cellTemplateId, scrollStatus){
+		$.ajax({
+				url: url,
 				method : 'GET'
-			}).success(function(data){				
-				for(var book in data.Books){
-					var desc = data.Books[book].Description;
-					data.Books[book].shortDescription = desc.substr(0,50);
-					var id = 'key-'+book;
-					data.Books[book].id = id;
+			}).success(function(data){
+				var i = 0; 
+				var j = 0;
+				for(i; i < data.Books.length; i++){
+					var desc = data.Books[j].Description;
+					data.Books[i].shortDescription = desc.substr(0,50);
+					data.Books[i].ID = 'book-'+data.Books[i].ID;
 				}
-				 booksById = data;
-				_renderTemplate(booksById, renderId, 'mustache-template.js', loadingImage);
+				booksById = data;
+				console.log(booksById);
+				var rendered = Mustache.render(parseTemplateData, booksById);
+				$('#'+cellTemplateId).append(rendered);
+				if(scrollStatus == 'true'){
+					$('#'+cellTemplateId).append(rendered);
+				}else {
+					$('#'+cellTemplateId).html(rendered);
+				}
+				$('#'+cellTemplateId).trigger('emptyCheck');
+				pageCount++;
 			}).error(function(){
 				console.log('error');
-			});
 		});
 	}
-	/* function to render the mustache template */
-	var _renderTemplate = function(booksById, renderId, templateName, loadingImage = ''){
-		$.ajax({
-		  url: 'templates/'+templateName,
-		  method : 'GET',
-		  dataType: 'html'
-		}).success(function(template){
-			//parseTemplate = Mustache.parse(template); 
-			_rendered = Mustache.render(template, booksById);
-			if(loadingImage != ''){
-				$('.'+loadingImage).hide();
-			}
-			$("#"+renderId).html(_rendered); 
+
+	this.bookSwitching = function(){
+		$('.'+activeClassName).click(function(){
+			$('.'+activeClassName).removeClass('active');
+			$(this).addClass('active');
+			whichBook = $(this).attr('data-atribute');
+			var url = _determineApiUrl(whichBook, bookApiObj);
+			pageCount = 1;
+			scrollStatus = 'false';
+			_loadData(url, cellTemplateData, cellTemplateId, scrollStatus);
 		});
 	}
-	/* function end */
-	
-    /* function for menu active status */
-	this.defaultStatus = function(elem, className, renderId, attribute){
-		_elem = elem;
-		_className = className;
-		dataAttribute = attribute ;
-		if($('.'+_elem).hasClass('active')){
-			$('.'+_className).trigger('click');
-		}
-	}
-	/* function end */
-	
-	/* function to handle navigation active status */
-	this.activeLink = function(linkId, className){
-		_linkId = linkId;
-		_className = className;
-		$('.'+_linkId).click(function(event){
-			$('.'+_linkId).removeClass(className);
-			$(this).addClass(className);
-			if(dataAttribute != $(this).attr('data-atribute'))
-			{
-				status = 'false';
-				dataAttribute = $(this).attr('data-atribute');
-				count = 1;
-			}else{
-				status = 'true';
-				count++;
-			}
-		});
-	}
-	/* function end */
-	
-	/* fucntion to show pop up box on click handler */
-	this.showPopUp = function(event, container){
-		var _bookId = event;
-		_arr = _bookId.split('-');
-		_bookId = _arr['2'];
-		var containerId = container;
-		_renderTemplate(booksById.Books[_bookId], containerId, 'article-template.js', 'loadingImage');	
-	}
-	/* fucntion end */
-	
-	/* empty the pop up box */
-	this.emptyPopup = function(container){
-		$('#'+container).html('');
-	}
-	/* function end */
 }
-/*end of classes*/
