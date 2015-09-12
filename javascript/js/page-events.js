@@ -7,7 +7,7 @@ var BookComponent = function(){
 	var whichBook = '';
 	var cellTemplateId = '';
 	var modalTemplateId = '';
-	var booksById = []; var anotherarr = [];
+	var booksById = [];
 	var scrollStatus = 'false';
 	var bookApiObj = {php: "http://it-ebooks-api.info/v1/search/php/page/", javas: "http://it-ebooks-api.info/v1/search/java/page/", mysql: "http://it-ebooks-api.info/v1/search/mysql/page/"};
 	this.init = function(cellTemplateClass, modalTemplateClass, className){
