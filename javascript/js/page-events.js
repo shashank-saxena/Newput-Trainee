@@ -7,7 +7,7 @@ var BookComponent = function(){
 	var whichBook = '';
 	var cellTemplateId = '';
 	var modalTemplateId = '';
-	var booksById = '';
+	var booksById = []; var anotherarr = [];
 	var scrollStatus = 'false';
 	var bookApiObj = {php: "http://it-ebooks-api.info/v1/search/php/page/", javas: "http://it-ebooks-api.info/v1/search/java/page/", mysql: "http://it-ebooks-api.info/v1/search/mysql/page/"};
 	this.init = function(cellTemplateClass, modalTemplateClass, className){
@@ -21,7 +21,7 @@ var BookComponent = function(){
 		modalTemplateId =  $('.'+modalTemplateClass).attr('id');
 
 		/* define custom events */
-		$('#'+cellTemplateId).on('emptyCheck', function(){
+		$(document).on('emptyCheck', function(){
 			alert('Data has been successfully loaded!!');
 		});
 
@@ -72,16 +72,11 @@ var BookComponent = function(){
 
 	var _showPopUp = function(bookId, modalTemplateId, parseModalData){
 		var arr = bookId.split('-');
-		bookId = 'book-'+arr['2'];
-		for(var index in booksById ){
-			if(booksById.Books.ID == bookId){
-				console.log(booksById.Books.ID);
-				break;
-			}
-		}
-		//var modalData = booksById.Books[ID]; console.log(modalData);
-		// var rendered = Mustache.render(parseModalData, modalData);
-		// $('#'+modalTemplateId).html(rendered);
+		var page = arr['1'];
+		var bookIndex = arr['2'];
+		var bookObj = booksById[page-1].Books[bookIndex];
+		var rendered = Mustache.render(parseModalData, bookObj);
+		$('#'+modalTemplateId).html(rendered);
 
 	}
 
@@ -94,23 +89,23 @@ var BookComponent = function(){
 				url: url,
 				method : 'GET'
 			}).success(function(data){
-				var i = 0; 
-				var j = 0;
+				var i = 0;
+				var bookArr = ''; 
 				for(i; i < data.Books.length; i++){
-					var desc = data.Books[j].Description;
+					var desc = data.Books[i].Description;
 					data.Books[i].shortDescription = desc.substr(0,50);
-					data.Books[i].ID = 'book-'+data.Books[i].ID;
+					data.Books[i].id = pageCount+'-'+i;
 				}
-				booksById = data;
-				console.log(booksById);
-				var rendered = Mustache.render(parseTemplateData, booksById);
-				$('#'+cellTemplateId).append(rendered);
+				bookArr = data ; 
+				booksById.push(data);
+				var rendered = Mustache.render(parseTemplateData, bookArr);
 				if(scrollStatus == 'true'){
 					$('#'+cellTemplateId).append(rendered);
+
 				}else {
 					$('#'+cellTemplateId).html(rendered);
 				}
-				$('#'+cellTemplateId).trigger('emptyCheck');
+				$(document).trigger('emptyCheck');
 				pageCount++;
 			}).error(function(){
 				console.log('error');
@@ -124,6 +119,7 @@ var BookComponent = function(){
 			whichBook = $(this).attr('data-atribute');
 			var url = _determineApiUrl(whichBook, bookApiObj);
 			pageCount = 1;
+			booksById = [];
 			scrollStatus = 'false';
 			_loadData(url, cellTemplateData, cellTemplateId, scrollStatus);
 		});
