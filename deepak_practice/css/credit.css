@@ -1,0 +1,105 @@
+.col-md-6 .form-wraper {
+  width: 545px;
+  background-color: #F5F5F5;
+  padding: 5px;
+  border: solid thin;
+}
+.col-md-6 .form-wraper .form-group.content-flot {
+  float: left;
+}
+.col-md-6 .form-wraper .form-group.form-input-width {
+  margin: 3px;
+  width: 260px;
+}
+.col-md-6 .form-wraper .form-group.form-input-top-spacing {
+  margin-top: 10px;
+}
+.row-margin {
+  margin-top: 30px;
+}
+.row-margin .col-md-3.side-bar-bg-color {
+  background-color: #F7F2F2;
+  border: thin solid;
+  margin: 7px;
+}
+.row-margin .col-md-3.side-bar-bg-color .side-bar-pragraph {
+  padding: 10px;
+  margin-top: 10px;
+}
+.row-margin .col-md-3.side-bar-bg-color .side-bar-pragraph .pragraph {
+  padding: 10px;
+  font-size: 15px;
+}
+.col-md-2.side-bar-bg-color {
+  background-color: #F7F2F2;
+  border: thin solid;
+  margin: 7px;
+}
+.col-md-2.side-bar-bg-color .side-bar-pragraph {
+  padding: 10px;
+  margin-top: 10px;
+}
+.form-group .input-group .card-input-width {
+  margin: 3px;
+  width: 526px;
+}
+.form-group .input-group p .visa {
+  background-color: #1753A6;
+  color: #fff;
+}
+.form-group .input-group p .discover {
+  background-color: #000;
+  color: #fff;
+}
+.form-group .input-group p .mastercard {
+  background-color: #000;
+  color: #ffffff;
+}
+@media screen and (max-width: 1024px) {
+  .col-md-6 .form-wraper {
+    width: 720px;
+    background-color: #E5EDF2;
+    padding: 5px;
+    border: thin solid;
+  }
+  .col-md-6 .form-wraper .form-group.form-input-width {
+    margin: 2px;
+    width: 350px;
+  }
+  .col-md-6 .form-wraper .form-group .input-group .card-input-width {
+    margin: 3px;
+    width: 703px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .col-md-6 .form-wraper {
+    width: 335px;
+    background-color: #F5F5F5;
+    padding: 5px;
+    border: solid thin;
+  }
+  .col-md-6 .form-wraper .form-group.form-input-width {
+    margin: 2px;
+    width: 320px;
+  }
+  .col-md-6 .form-wraper .form-group .input-group .card-input-width {
+    margin: 3px;
+    width: 318px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .col-md-6 .form-wraper {
+    width: 295px;
+    background-color: #F5F5F5;
+    padding: 5px;
+    border: solid thin;
+  }
+  .col-md-6 .form-wraper .form-group.form-input-width {
+    margin: 2px;
+    width: 278px;
+  }
+  .col-md-6 .form-wraper .form-group .input-group .card-input-width {
+    margin: 3px;
+    width: 277px;
+  }
+}

@@ -4,14 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css"  href="css/creditcard.css">
+		<link rel="stylesheet" type="text/css"  href="css/credit.css">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	
 		<script type="text/javascript" src="js/creditcardform.js"></script>
 		<script src="js/jquery.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> 
 		<script src="js/jquery.geocomplete.min.js"></script>
 		
 		<script src="js/jquery.creditCardValidator.js"></script>
@@ -21,6 +21,9 @@
 		<link rel="stylesheet" type="text/css" href="datepicker/jquery.datepick.css"> 
 		<script type="text/javascript" src="datepicker/jquery.plugin.js"></script> 
 		<script type="text/javascript" src="datepicker/jquery.datepick.js"></script>
+		<script type="text/javascript" src="js/mustache.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		
 		<script>
 			$(document).ready(function(){
 				creditcardWraper();
@@ -61,8 +64,8 @@
 						<div class="form-wraper">
 							<fieldset>
 								<div class="form-group content-flot form-input-width">
-									<label for="firstname">First Name</label>
-									<input type="text" class="form-control" name="firstname" placeholder="First Name">
+									<label for=fullname>Full Name</label>
+									<input type="text" class="form-control" name="fullname" placeholder="FullName">
 								</div>
 								<div class="form-group content-flot form-input-width">
 								    <label for="email">Email</label>
@@ -71,9 +74,12 @@
 								<div class="clearfix"></div>
 								<div class="form-group">
 								    <label for="creditcard">Credit Card*</label>
-								    <input type="text" class="form-control credit-card" name="creditcard">
+								    <div class="input-group">
+								    <input type="text" class="form-control credit-card card-input-width" name="creditcard">					
 								    <p class="log"></p>
-								</div>
+								    </div>
+								</div> 
+							
 								<div class="form-group content-flot form-input-width">
 								    <label for="expirationDate">Expiration Date*</label>
 								    <input type="text" class="form-control" name="expirationDate" id="expirationdate"  placeholder="Expiration Date">
@@ -113,16 +119,27 @@
 								<p>
 								<input class="submit" type="submit" value="Submit">
 								</p>
-							</fieldset>							
+							</fieldset>
+							
 						</div>
 					</form>	
 				</div>
 				<div class="col-md-2 side-bar-bg-color ">
 					<p class="side-bar-pragraph">
 						Please note there are additional form for necessary to finalize your payment request
+						Try some of these numbers:<br>
+					   		4000 0000 0000 0002<br>
+						    4026 0000 0000 0002<br>
+						    5018 0000 0009<br>
+						    5100 0000 0000 0008<br>
+						    6011 0000 0000 0004<br>
 					</p>
 				</div>
 			</div>			
-		</div>
+		</div>		
+		<script id="creditcard-callback" type="text/template">
+				<i class="fa fa-cc-{{card_type.name}} {{card_type.name}}" ></i>
+				:{{card_type.name}}<br>Valid:{{valid}}
+		</script>
 	</body>
 </html>

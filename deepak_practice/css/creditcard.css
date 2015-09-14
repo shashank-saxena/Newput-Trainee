@@ -39,8 +39,51 @@
 .form-input-top-spacing {
 	margin-top: 10px;
 }
+.visa {
+	background-color:#1753A6;
+	color:#fff;
+}
+.discover {
+	background-color:#000;
+	color:#fff;
+}
+.mastercard {
+	background-color: #000;
+    color: #ffffff;
+}
+.card-input-width {
+	margin:3px;
+	width: 500px;
+}
+
+@media screen and (max-width: 1024px) {
+	
+.form-wraper {
+	width: 720px;
+	background-color: #E5EDF2;
+	padding: 5px;
+	border: thin solid;
+} 
+.form-input-width {
+	margin:2px;
+	width: 350px;
+}
 
 @media screen and (max-width: 767px) {
+	
+.form-wraper {
+	width: 335px;
+	background-color: #F5F5F5;	
+	padding: 5px;
+	border: solid thin;
+} 
+.form-input-width {
+	margin:2px;
+	width: 320px;
+}
+ 
+}
+@media screen and (max-width: 340px) {
 	
 .form-wraper {
 	width: 295px;
@@ -52,6 +95,5 @@
 	margin:2px;
 	width: 238px;
 }
- 
  
 }
