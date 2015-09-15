@@ -7,4 +7,8 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
-<%= link_to 'BAck to Welcome page', root_path %>
+
+<%= render @article.comments %>
+<%= render 'comments/form' %>
+
+<%= link_to 'Back', articles_path %>
