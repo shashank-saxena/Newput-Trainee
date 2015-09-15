@@ -1,8 +1,10 @@
 class ArticlesController < ApplicationController
- http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
- http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy  
+
   def index
     @articles = Article.all
+    if @articles.size < 0
+      redirect_to new_article_path
+    end
   end
 
   def new

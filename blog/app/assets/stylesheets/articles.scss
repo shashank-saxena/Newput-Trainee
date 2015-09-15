@@ -1,3 +1,68 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+
+	.wrapper {
+		background-color: rgb(197, 47, 36);
+	    height: 86px;
+
+	    h1 {
+	    	margin: 0px;
+	    	padding: 20px;
+	    	text-align: center;
+	    }
+	}
+
+}
+.article {
+
+	a {
+		background-color: #d5e9f6;
+	    color: black;
+	    display: block;
+	    margin: 20px auto;
+	    padding: 20px;
+	    text-align: center;
+	    text-decoration: none;
+	    width: 10%;
+	}
+	
+}
+form {
+	margin: 0 auto;
+    width: 50%;
+
+    input {
+    	height: 25px;
+    	width: 100%;
+    }
+
+    textarea {
+	    height: 160px;
+	    width: 100%;
+    }
+
+    .submit {
+    	height: 40px;
+    	width: 20%;
+    }
+}
+.prev-link {
+
+	& a {
+		background-color: #bebebe;
+	    border-radius: 5px;
+	    color: black;
+	    float: right;
+	    margin: 35px 50px;
+	    padding: 18px 60px;
+	    text-decoration: none;
+	}	
+
+}
