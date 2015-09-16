@@ -1,5 +1,5 @@
 <div class="prev-link"><%= link_to 'Back', root_path %></div>
-<%= form_for :article, url: articles_path do |f| %>
+<%= form_for :article, url: articles_path, html: {class: "new-article"} do |f| %>
  
   <%= render 'form' %>
 

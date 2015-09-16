@@ -9,6 +9,7 @@
     <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.submit %>
-  </p>
+    <%= f.submit Comment, :class => 'submit' %> 
+    <%= link_to 'Back', articles_path %>
+
 <% end %>

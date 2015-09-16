@@ -1,6 +1,17 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Define Variables
+
+$background-color: rgb(197, 47, 36);
+$article-bg-color: #d5e9f6;
+$black-default-color: #000;
+$link-color: #bebebe;
+$comment-list-shade: #D5E9F6;
+
+// Definition end
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -9,8 +20,7 @@ body {
 header {
 
 	.wrapper {
-		background-color: rgb(197, 47, 36);
-	    height: 86px;
+		background-color: $background-color;
 
 	    h1 {
 	    	margin: 0px;
@@ -23,8 +33,8 @@ header {
 .article {
 
 	a {
-		background-color: #d5e9f6;
-	    color: black;
+		background-color: $article-bg-color;
+	    color: $black-default-color;
 	    display: block;
 	    margin: 20px auto;
 	    padding: 20px;
@@ -34,7 +44,7 @@ header {
 	}
 	
 }
-form {
+.new-article {
 	margin: 0 auto;
     width: 50%;
 
@@ -56,13 +66,58 @@ form {
 .prev-link {
 
 	& a {
-		background-color: #bebebe;
+		background-color: $link-color;
 	    border-radius: 5px;
-	    color: black;
+	    color: $black-default-color;
 	    float: right;
 	    margin: 35px 50px;
 	    padding: 18px 60px;
 	    text-decoration: none;
 	}	
 
+}
+.new_comment {
+	float: left;
+    width: 30%;
+
+    input {
+    	height: 25px;
+    	width: 100%;
+    }
+
+    textarea {
+	    height: 50px;
+	    width: 100%;
+    }
+
+    .submit {
+    	height: 40px;
+    	width: 20%;
+    }
+    a {
+    	background-color: #ebebeb;
+    	box-shadow: 5px 0 11px 0;
+	    color: black;
+	    float: right;
+	    padding: 10px;
+	    text-decoration: none;
+    }
+}
+.wrapper {
+	padding: 10px;
+}
+.comments-list {
+	background-color: $comment-list-shade;
+}
+.article-section {
+	
+	h1 {
+		text-align: center;
+	}
+}
+.edit-article {
+	text-align: center;
+}
+.comment-heading {
+	font-size: 15px;
 }
