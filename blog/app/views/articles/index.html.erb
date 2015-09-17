@@ -1,5 +1,7 @@
 <div class="article-section">
+  <%= link_to 'Back', {controller: 'welcome'}, class: 'back-btn' %>
   <h1>All Articles</h1>
+
     <% @articles.each do |article| %>
     <p><%= link_to article.title, article_path(article) %></p>
     <p class="title"><%= article.text %></p>
@@ -11,5 +13,4 @@
     </p>
     <hr>
     <% end %>
-  <%= link_to 'Back', controller: 'welcome' %>
 </div>

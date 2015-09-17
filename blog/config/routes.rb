@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-
+  get '/newsletters/', to: 'newsletters#index'
+  get '/newsletters/list', to: 'newsletters#list'
+  post '/newsletters/add', to: 'newsletters#add'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -29,7 +31,7 @@ Rails.application.routes.draw do
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get 'sold
   #     end
   #   end
 

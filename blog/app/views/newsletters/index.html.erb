@@ -1,0 +1,28 @@
+<%= form_for :newsletter, url: '/newsletters/add'  do |f| %>
+<% if @newsletter.errors.any? %>
+     <div id="error_explanation">
+      <ul>
+         <% @newsletter.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+       </ul>
+     </div>
+   <% end %>
+
+   <p>
+     <%= f.label :username %>
+     <%= f.text_field :username %>
+   </p>
+
+   <p>
+     <%= f.label :email %>
+     <%= f.text_field :email %>
+   </p>
+
+   <p>
+     <%= f.submit 'Subscribe', :class => 'submit' %>
+   </p>
+ 
+ <% end %>
+
+ 

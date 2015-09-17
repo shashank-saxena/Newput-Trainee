@@ -13,6 +13,7 @@ $comment-list-shade: #D5E9F6;
 // Definition end
 
 body {
+	font-family: Comic Sans MS;
 	margin: 0px;
 	padding: 0px;
 }
@@ -113,6 +114,19 @@ header {
 	
 	h1 {
 		text-align: center;
+	}
+	a{
+		background-color: #cdb5cd;
+	    color: black;
+	    font-weight: 600;
+	    text-decoration: none;
+
+	    &.back-btn {
+	    	border-radius: 5px;
+		    float: right;
+		    margin-right: 10px;
+		    padding: 10px 40px;
+	    }
 	}
 }
 .edit-article {
