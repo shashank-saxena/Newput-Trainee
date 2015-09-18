@@ -1,0 +1,24 @@
+<%-# validates :email,
+	:uniqueness => {:message => " already exists."},
+	:format => { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, 
+	:message => "is invalid"} -%>
+
+
+	validates :email, 
+  :presence => {:message => "cant be empty."}, 
+  :if => Proc.new {|c| c.email.blank?}
+
+  validates :email,
+	:uniqueness => {:message => " already exists."},
+	:format => { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "is invalid"}
+  :unless => Proc.new {|c| c.email.blank?}
+
+
+
+
+
+
+  alidates :email,
+	:uniqueness => {:message => " already exists."},
+	:format => { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, 
+	:message => "is invalid"}

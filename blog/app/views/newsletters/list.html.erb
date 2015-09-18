@@ -1,8 +1,11 @@
-<h1>All Articles</h1>
+<h1>Subscribers list</h1>
 
-    <% @newsletters.each do |newsletter| %>
-    <%= newsletter.username %>
-
+  <% @newsletters.each do |newsletter| %>
+  <div>
+  	<%= newsletter.username %>
+  	<%= link_to 'Unsubscribe', unsubscribe_path(id: newsletter.id),
+                                    method: :delete,
+                                    data: { confirm: 'Are you sure?' } %>
+  </div>
     
-    <hr>
-    <% end %>
+  <% end %>

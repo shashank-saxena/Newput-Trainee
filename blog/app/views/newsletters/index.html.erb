@@ -1,4 +1,4 @@
-<%= form_for :newsletter, url: '/newsletters/add'  do |f| %>
+<%= form_for @newsletter, url: '/newsletters/add'  do |f| %>
 <% if @newsletter.errors.any? %>
      <div id="error_explanation">
       <ul>

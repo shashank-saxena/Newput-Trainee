@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/newsletters/', to: 'newsletters#index'
   get '/newsletters/list', to: 'newsletters#list'
   post '/newsletters/add', to: 'newsletters#add'
+  delete 'newsletter/destroy/:id' => 'newsletters#delete_subscriber', as: :unsubscribe
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

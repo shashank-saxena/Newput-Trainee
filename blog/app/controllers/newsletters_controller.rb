@@ -16,7 +16,8 @@ class NewslettersController < ApplicationController
 
 	def delete_subscriber
 		@newsletter = Newsletter.find(params[:id])
-		@newsletter.destroy
+		@newsletter.delete
+		redirect_to newsletters_list_path
 	end
 
 	private
