@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+	<classPathEntry location="F:\JARS\mysql-connector-java-5.0.8\mysql-connector-java-5.0.8\mysql-connector-java-5.0.8-bin.jar"/>
+  <context id="context_test" ><plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/rahul_test" 
+    userId="root" password="root" />
+    <javaModelGenerator targetPackage="com.app.newput.controller.group" targetProject="MyBatisMVC" />
+    <sqlMapGenerator targetPackage="com.app.newput.mapper.group" targetProject="MyBatisMVC" />
+    <javaClientGenerator targetPackage="com.app.newput.mapper.group" targetProject="MyBatisMVC" type="XMLMAPPER" />
+    
+    <table schema="rahul_test" tableName="testing" >
+      <!-- <columnOverride column="user_id" javaType="int" /> -->
+      <columnOverride column="name" javaType="String" />
+      <columnOverride column="address" javaType="String" />
+    </table>
+    
+  </context>
+</generatorConfiguration>
