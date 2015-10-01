@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC
+  "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="mailAppender" class="com.app.newput.delegate.SecureSMTPAppender">
+<!-- 	<appender name="mailAppender" class="org.apache.log4j.net.SMTPAppender"> -->
+		<param name="BufferSize" value="50" />
+		<param name="SMTPHost" value="smtp.gmail.com" />
+		<param name="SMTPPort" value="587" />
+		<param name="SMTPAuth" value="true" />
+		<param name="SMTPProtocol" value="smtp" />
+		<param name="SMTPDebug" value="true" />		
+		<param name="SMTPUsername" value="deepti@newput.com" />
+		<param name="SMTPPassword" value="712august2015" />
+		<param name="From" value="deepti@newput.com" />
+		<param name="To" value="rahul@newput.com" />
+		<param name="Subject" value="Testing Log4j mail notification" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%p] %l - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="error" />
+			<param name="LevelMax" value="error" />
+		</filter>
+	</appender>
+
+	<appender name="stdOut" class="org.apache.log4j.ConsoleAppender">
+		<!-- <param name="File" value="F:/loggers/SpringMVC.log" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-7p %d [%t] %c %x - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="info" class="org.apache.log4j.RollingFileAppender">
+		<param name="MaxFileSize" value="100KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<param name="Append" value="false" />
+		<param name="File" value="F:/loggers/InfoFile.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%p] %l - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="info" />
+			<param name="LevelMax" value="info" />
+		</filter>
+	</appender>
+	<appender name="error" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="F:/loggers/ErrorFile.log" />
+		<param name="Append" value="false" />
+		<param name="MaxFileSize" value="100KB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%p] %l - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="error" />
+			<param name="LevelMax" value="error" />
+		</filter>
+	</appender>
+
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="info" />
+		<appender-ref ref="error" />
+		<appender-ref ref="mailAppender" />
+	</root>
+
+</log4j:configuration>
